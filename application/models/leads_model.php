@@ -192,8 +192,9 @@ class Leads_Model extends Model {
 	public function getLeadFiles($idLead) {
 		$response = []; 
 	
-		// Obtener los archivos relacionados con el lead
-		$filesResult = $this->selectBy('*', 'leads_archivos', 'idLead', $idLead, 'i');
+		// Obtener los archivos relacionados con el lead con estatus activo
+		$additionalCondition = ' AND Estatus = \'activo\'';
+		$filesResult = $this->selectBy('*', 'leads_archivos', 'idLead', $idLead, 'i', $additionalCondition);
 		if (!is_null($filesResult)) {
 			foreach ($filesResult as $fileRow) {
 				$response[] = [
@@ -206,6 +207,8 @@ class Leads_Model extends Model {
 		}
 		return json_encode($response);
 	}
+	
+	
 	
 	
 }

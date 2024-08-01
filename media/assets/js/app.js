@@ -2794,32 +2794,33 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 	}
 
 	dashboard.setLeadsFiles = function() {
-		$rootScope.selectedLead = {
-			idLead: dashboard.activeLeads[selectedLeadIndex].idLead
-		};
-	
-		$http({
-			method: 'POST',
-			url: 'application/controllers/consultar_archivos_leads_controller.php',
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-			data: $.param({
-				idLead: $rootScope.selectedLead.idLead
-			})
-		}).then(function(response) {
-			console.log('Response:', response.data);
-			if (response.data.status === 1) {
-				dashboard.leadFiles = { files: response.data.files };
-				console.log('dashboard.leadFiles:', dashboard.leadFiles);
-			} else {
-				dashboard.leadFiles = { files: [] };
-				console.log('No files found');
-			}
-			console.log('HTTP_GET_LEAD_FILES_OK');
-		}, function(response) {
-			console.error('HTTP_GET_LEAD_FILES_ERR', response);
-		});
-	};
-	
+        $rootScope.selectedLead = {
+            idLead: dashboard.activeLeads[selectedLeadIndex].idLead
+        };
+    
+        $http({
+            method: 'POST',
+            url: 'application/controllers/consultar_archivos_leads_controller.php',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+            data: $.param({
+                idLead: $rootScope.selectedLead.idLead
+            })
+        }).then(function(response) {
+            console.log('Response:', response.data);
+            if (response.data.status === 1) {
+                // Procesar archivos recibidos
+                dashboard.leadFiles = response.data.files || [];
+                console.log('dashboard.leadFiles:', dashboard.leadFiles);
+            } else {
+                dashboard.leadFiles = [];
+                console.log('No files found');
+            }
+            console.log('HTTP_GET_LEAD_FILES_OK');
+        }, function(response) {
+            console.error('HTTP_GET_LEAD_FILES_ERR', response);
+        });
+
+    }
 	
 
 	dashboard.updatePanel = function(index) {

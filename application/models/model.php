@@ -17,10 +17,11 @@ class Model {
      * @param $table, $where, $value
      * @return null
      */
-	public function selectBy($fields, $table, $where, $value, $type) {
-    	$sql = 'SELECT '.$fields.' FROM '.$table.' WHERE '.$where.' = ?';
+	public function selectBy($fields, $table, $where, $value, $type, $additionalCondition = '') {
+        $sql = 'SELECT ' . $fields . ' FROM ' . $table . ' WHERE ' . $where . ' = ?' . $additionalCondition;
         return $this->select($sql, $value, $type);
     }
+    
 
     /** Method for get any table by any value
      * @param $table, $where, $value
@@ -580,7 +581,19 @@ class Model {
 	public function setConnPath($connPath) {
 		$this->connPath = $connPath;
 	}
-    
+    public function selectByQuery($query, $params, $types) {
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param($types, ...$params);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $data = [];
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+    $stmt->close();
+    return $data;
+}
+
 }
 
 ?>
