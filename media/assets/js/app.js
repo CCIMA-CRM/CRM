@@ -2797,7 +2797,8 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
         $rootScope.selectedLead = {
             idLead: dashboard.activeLeads[selectedLeadIndex].idLead
         };
-    
+	}
+		dashboard.leadFiles = function() {
         $http({
             method: 'POST',
             url: 'application/controllers/consultar_archivos_leads_controller.php',
@@ -2822,7 +2823,8 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 
     }
 	
-
+	dashboard.leadFiles();
+	
 	dashboard.updatePanel = function(index) {
 		selectedLeadIndex = index;
 		dashboard.setLeadData(index);

@@ -22,13 +22,12 @@
         </div>
 
         <div class="divider"></div>
-
         <div class="row mt-40">
             <div class="col s12">
                 <ul class="collection">
-                    <li class="collection-item" ng-repeat="file in dashboard.leadFiles.files">
+                <li class="collection-item" ng-repeat="file in dashboard.leadFiles">
                         <div>
-                            
+                       
                             <a ng-href="{{file.URL}}" target="_blank">{{file.URL}}</a>
                             <a href="#!" class="secondary-content">
                                 <i class="material-icons red-text" ng-click="dashboard.deleteFile(file.idArchivo)">delete</i>
