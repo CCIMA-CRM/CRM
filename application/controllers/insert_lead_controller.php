@@ -15,8 +15,9 @@ $insertLeadResponse = null;  // Definimos la variable antes de su uso
 
 if (isset($_SESSION['idUser'])) {
 
-    $uploadDir = './../views/app/dashboard/add/';
-    $uploadedFiles = [];
+    $uploadDir = '../../views/app/dashboard/add/';
+ // $uploadDir = 'C:/xampp/htdocs/add/';  
+  $uploadedFiles = [];
     $errors = [];
 
     // Crear el directorio si no existe

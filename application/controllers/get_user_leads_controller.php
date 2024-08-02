@@ -6,7 +6,7 @@ $model = new Leads_Model();
 $response = ['status' => 0];
 
 if (isset($_SESSION['idUser'])) {
-    $limit = isset($_POST['limit']) ? intval($_POST['limit']) : 25;
+    $limit = isset($_POST['limit']) ? intval($_POST['limit']) : 3000;
 	//$limit = 3000;
 	$offset = isset($_POST['offset']) ? intval($_POST['offset']) : 0;
 

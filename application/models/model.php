@@ -593,6 +593,12 @@ class Model {
     $stmt->close();
     return $data;
 }
+public function find($select, $join, $where, $value, $type) {
+    $sql = 'SELECT ' . $select . ' FROM ' . $join . ' WHERE ' . $where;
+    return $this->select($sql, $value, $type);
+}
+
+
 
 }
 

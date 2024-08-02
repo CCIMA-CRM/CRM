@@ -172,9 +172,7 @@
         </div>
     </div>
 </div>
-<!--<button ng-click="dashboard.previousPage()" ng-disabled="dashboard.offset === 0">Anterior</button>
-<button ng-click="dashboard.nextPage()" ng-disabled="dashboard.offset + dashboard.limit >= dashboard.totalLeads">Siguiente</button>
--->
+
 
 
     <div class="divider"></div>
@@ -183,12 +181,16 @@
         <div class="mt-40">
         <div class="col s12">
                 <div>
-<button class="btn btn-sm" ng-click="dashboard.previousPage()"  ng-disabled="dashboard.currentPage == 0">Anterior</button>
+<!--<button class="btn btn-sm" ng-click="dashboard.previousPage()"  ng-disabled="dashboard.currentPage == 0">Anterior</button>
 <button class="btn btn-sm" ng-click="dashboard.nextPage()" ng-disabled="dashboard.currentPage == dashboard.pagedItems.length - 1">Siguiente</button>
+-->
+<button class="btn btn-sm" ng-click="dashboard.previousPage()" ng-disabled="dashboard.offset === 0">Anterior</button>
+<button class="btn btn-sm" ng-click="dashboard.nextPage()" ng-disabled="dashboard.offset + dashboard.limit >= dashboard.totalLeads">Siguiente</button>
+
 </div>
 </div>
             <ul class="saufth-collapsable">
-                <li ng-repeat="lead in dashboard.activeLeads | filter:dashboard.searchFilter | limitTo:25">
+            <li ng-repeat="lead in dashboard.activeLeads | filter:dashboard.searchFilter | limitTo:25">
                     <div class="collapsable__header">
                         <div class="pr-15 hide-on-small-only">
                             <i class="material-icons" style="font-size:33px;">assignment_ind</i>

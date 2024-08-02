@@ -22,9 +22,51 @@
         </div>
 
         <div class="divider"></div>
+       
+
+        <div class="row">
+            <div class="col s12">
+                <form ng-submit="dashboard.uploadFile()">
+                    <div class="file-field input-field">
+                        <div class="btn blue darken-4">
+                            <span>Archivo</span>
+                            <input type="file" id="newFile" name="newFile" ng-model="dashboard.newFile" onchange="angular.element(this).scope().fileNameChanged(this)">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Subir nuevo archivo">
+                        </div>
+                    </div>
+                    <button class="btn blue darken-4 waves-effect waves-light" type="submit">Subir
+                        <i class="material-icons right">file_upload</i>
+                    </button>
+                    
+                </form>
+            </div>
+        </div>
         <div class="row mt-40">
             <div class="col s12">
-                <ul class="collection">
+                <table>
+                    <thead>
+                        <th>Nombre del Archivo</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="file in dashboard.leadFiles">
+                            <td>
+                            <a ng-href="ccimax/application/{{file.URL}}" download="{{file.URL.split('/').pop()}}" class="file-link">{{file.URL.split('/').pop()}}</a>
+                              
+                                </a>
+                            </td>
+                            <td>
+                                <a style="cursor:pointer;" ng-click="dashboard.deleteFile(file.idArchivo)" class="secondary-content">
+                                    <i class="material-icons red-text">delete</i>
+                                </a>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+                <ul ng-show="false" class="collection">
                 <li class="collection-item" ng-repeat="file in dashboard.leadFiles">
                         <div>
                        
@@ -38,24 +80,6 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col s12">
-                <form ng-submit="dashboard.uploadFile()">
-                    <div class="file-field input-field">
-                        <div class="btn blue darken-4">
-                            <span>Archivo</span>
-                            <input type="file" id="newFile" name="newFile" ng-model="dashboard.newFile" onchange="angular.element(this).scope().dashboard.fileChanged(this.files)">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" placeholder="Subir nuevo archivo">
-                        </div>
-                    </div>
-                    <button class="btn blue darken-4 waves-effect waves-light" type="submit">Subir
-                        <i class="material-icons right">file_upload</i>
-                    </button>
-                </form>
-            </div>
-        </div>
     </div>
 
     <script type="text/javascript" src="media/bower_components/materialize/js/materialize.min.js"></script>

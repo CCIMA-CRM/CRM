@@ -2592,9 +2592,9 @@ app.controller('UsersCtrl', function($scope, $rootScope, $http, $location, Sessi
 
 });
 
-app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, Session, Quote, httpInterceptor) {
+app.controller('DashboardCtrl', function ($scope, $location, $http, $rootScope, Session, Quote, httpInterceptor) {
 
-	Session.isLogged().then(function(response) {
+	Session.isLogged().then(function (response) {
 		if (response < 1) {
 			$location.path('/login');
 		}
@@ -2602,17 +2602,17 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 
 	var dashboard = this;
 
-    dashboard.limit = 25;
-    dashboard.offset = 0;
+	dashboard.limit = 25;
+	dashboard.offset = 0;
 	dashboard.quotePropertyResult = [];
 	dashboard.activeLeads = [];
 	dashboard.deletedLeads = [];
 	dashboard.leadFiles = []; // Añadido para manejar archivos
-
+	dashboard.allLeads = [];
 	dashboard.discountParam = 0;
 	dashboard.termParam = 1;
 	dashboard.hookParam = 0;
-	
+
 	dashboard.min_hook = 0;
 	dashboard.max_hook = 0;
 
@@ -2622,6 +2622,7 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 	dashboard.financing_options_a = 'hide';
 	dashboard.financing_options_b = 'hide';
 	dashboard.financing_options_c = 'hide';
+	dashboard.newFile = []
 
 	var selectedLeadIndex = 0;
 
@@ -2634,16 +2635,16 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 			value: idDevelopment,
 			type: 'i'
 		};
-		httpInterceptor.requestToSelectByHandler(ctrl, developmentRequestData).then(function(response) {
+		httpInterceptor.requestToSelectByHandler(ctrl, developmentRequestData).then(function (response) {
 			console.log('HTTP_SELECT_OK');
 			dashboard.quotePropertyResult.devlopment = response;
-		}, function(response) {
+		}, function (response) {
 			dashboard.quotePropertyResult.devlopment = 'HTTP_SELECT_ERR';
 			console.log(dashboard.quotePropertyResult.devlopment);
 		});
 	}
 
-	dashboard.selectLead = function(idLead, index) {
+	dashboard.selectLead = function (idLead, index) {
 		dashboard.disable = '';
 		selectedLeadIndex = index;
 		dashboard.idLead = idLead;
@@ -2695,7 +2696,7 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 		paymentPlanViewHandler();
 	}
 
-	dashboard.quoteLeadProperty = function(property) {
+	dashboard.quoteLeadProperty = function (property) {
 		dashboard.quotePropertyResult = Quote.quoteProperty(
 			property.area,
 			property.property_type.cost_m2,
@@ -2714,7 +2715,7 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 		dashboard.openQuoteDialogDisplay();
 	}
 
-	dashboard.getUserLeads = function() {
+	dashboard.getUserLeads = function () {
 		$http({
 			method: 'POST',
 			url: 'application/controllers/get_user_leads_controller.php',
@@ -2723,7 +2724,7 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 				limit: dashboard.limit,
 				offset: dashboard.offset,
 			})
-		}).then(function(response) {
+		}).then(function (response) {
 			console.log(response);
 			dashboard.result = response.data;
 			if (dashboard.result.status < 1) {
@@ -2734,9 +2735,9 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 				dashboard.activeLeads = [];
 				dashboard.deletedLeads = [];
 				dashboard.itemsPerPage = 5;
-                dashboard.pagedItems = [];
-				angular.forEach(dashboard.result.leads, function(lead, key) {
-					angular.forEach(dashboard.result.media, function(medium, key) {
+				dashboard.pagedItems = [];
+				angular.forEach(dashboard.result.leads, function (lead, key) {
+					angular.forEach(dashboard.result.media, function (medium, key) {
 						if (medium.idMedium == lead.idMedium) {
 							lead.medium = medium.medium;
 						}
@@ -2752,28 +2753,28 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 				dashboard.totalLeads = dashboard.result.totalLeads;
 			}
 			console.log('HTTP_GET_USER_LEADS_OK');
-		}, function(response) {
+		}, function (response) {
 			console.error('HTTP_GET_USER_LEADS_ERR', response);
 		});
 	}
 
-	dashboard.nextPage = function() {
+	dashboard.nextPage = function () {
 		if (dashboard.offset + dashboard.limit < dashboard.totalLeads) {
 			dashboard.offset += dashboard.limit;
 			dashboard.getUserLeads();
 		}
 	}
-	
-	dashboard.previousPage = function() {
+
+	dashboard.previousPage = function () {
 		if (dashboard.offset > 0) {
 			dashboard.offset -= dashboard.limit;
 			dashboard.getUserLeads();
 		}
 	}
-	
+
 	dashboard.getUserLeads();
 
-	dashboard.setLeadData = function() {
+	dashboard.setLeadData = function () {
 		$rootScope.selectedLead = {
 			idLead: dashboard.activeLeads[selectedLeadIndex].idLead,
 			name: dashboard.activeLeads[selectedLeadIndex].name,
@@ -2793,65 +2794,152 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 		};
 	}
 
-	dashboard.setLeadsFiles = function() {
-        $rootScope.selectedLead = {
-            idLead: dashboard.activeLeads[selectedLeadIndex].idLead
-        };
+	dashboard.setLeadsFiles = function (idLead) {
+		$rootScope.selectedLead = {
+			//idLead: dashboard.activeLeads[selectedLeadIndex].idLead
+			idLead:idLead
+		};
+		console.log("dashboarsidLead",$rootScope.selectedLead);
 	}
-		dashboard.leadFiles = function() {
-        $http({
-            method: 'POST',
-            url: 'application/controllers/consultar_archivos_leads_controller.php',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-            data: $.param({
-                idLead: $rootScope.selectedLead.idLead
-            })
-        }).then(function(response) {
-            console.log('Response:', response.data);
-            if (response.data.status === 1) {
-                // Procesar archivos recibidos
-                dashboard.leadFiles = response.data.files || [];
-                console.log('dashboard.leadFiles:', dashboard.leadFiles);
-            } else {
-                dashboard.leadFiles = [];
-                console.log('No files found');
-            }
-            console.log('HTTP_GET_LEAD_FILES_OK');
-        }, function(response) {
-            console.error('HTTP_GET_LEAD_FILES_ERR', response);
-        });
+	dashboard.leadFiles = function () {
+		$http({
+			method: 'POST',
+			url: 'application/controllers/consultar_archivos_leads_controller.php',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+			data: $.param({
+				idLead: $rootScope.selectedLead.idLead
+			})
+		}).then(function (response) {
+			console.log('Response:', response.data);
+			if (response.data.status === 1) {
+				// Procesar archivos recibidos
+				dashboard.leadFiles = response.data.files || [];
+				console.log('dashboard.leadFiles:', dashboard.leadFiles);
+			} else {
+				dashboard.leadFiles = [];
+				console.log('No files found');
+			}
+			console.log('HTTP_GET_LEAD_FILES_OK');
+		}, function (response) {
+			console.error('HTTP_GET_LEAD_FILES_ERR', response);
+		});
+	}
+	dashboard.deleteFile = function (idFile) {
+		$http({
+			method: 'POST',
+			url: 'application/controllers/eliminar_archivos_leads_controller.php',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+			data: $.param({
+				idFile: idFile
+			})
+		}).then(function (response) {
+			if (response.data === 1) {
+				// Procesar archivos recibidos
+				let nuevoLeadFile = []
+				if (dashboard.leadFiles.length !== 0) {
+					dashboard.leadFiles.map((file) => {
+						if (file.idArchivo !== idFile) {
+							nuevoLeadFile.push(file)
+						}
+					})
+					// Remplazo el leadfile.., ahora sin los elementos borrados
+					dashboard.leadFiles = [...nuevoLeadFile]
+				}
 
-    }
+			} else {
+				console.log('No files found');
+			}
+			console.log('HTTP_GET_LEAD_FILES_OK');
+		}, function (response) {
+			console.error('HTTP_DELETE_LEAD_FILES_ERR', response);
+		});
+	}
+
+	dashboard.uploadFile = function () {
+		let idLead = $rootScope.selectedLead.idLead;
+		console.log('idLead: ', idLead)
+		var formData = new FormData();
+		formData.append('idLead', idLead);
 	
+		for (var i = 0; i < dashboard.newFile.length; i++) {
+			formData.append('files[]', dashboard.newFile[i]);
+		}
+	
+		// formData.forEach((value, key) => {
+		//	console.log(key + ': ', value);
+		// });
+	
+		$http({
+			method: 'POST',
+			url: 'application/controllers/insert_lead_file_controller.php',
+			headers: { 'Content-Type': undefined }, // Eliminar el segundo headers y usar undefined aquí.
+			data: formData,
+			transformRequest: angular.identity
+		}).then(function (response) {
+			// console.log('Upload-response: ', response);
+			if (response.data.status === 1) {
+				dashboard.leadFiles.push({
+					Estatus: 'activo',
+					Fecha: '',
+					URL: response.data.uploadedFiles[0],
+					idArchivo: response.data.errorReport.insertFileResponse
+				})
+				console.log('HTTP_INSERT_LEAD_FILES_OK');
+			} else {
+				console.log('No files found');
+			}
+		}, function (response) {
+			console.error('HTTP_INSERT_LEAD_FILES_ERR', response);
+		});
+	};
+	
+
+	$scope.fileNameChanged = function (element) {
+		$scope.$apply(function () {
+			for (var i = 0; i < element.files.length; i++) {
+				dashboard.newFile.push(element.files[i]);
+			}
+		});
+		updateFileList();
+	};
+
+	function updateFileList() {
+		var fileList = document.querySelector('.file-path');
+		if (fileList) {
+			fileList.value = dashboard.newFile.map(f => f.name).join(', ');
+		}
+	}
+
 	dashboard.leadFiles();
-	
-	dashboard.updatePanel = function(index) {
+
+	dashboard.updatePanel = function (index) {
 		selectedLeadIndex = index;
 		dashboard.setLeadData(index);
 		$location.path('/actualizar_cliente');
 	}
 
-	dashboard.selectArchivos = async function(idLead, index) {
+	dashboard.selectArchivos = async function (idLead, index) {
+		console.log("SelectArchivosidLead",idLead)
 		selectedLeadIndex = index;
-		dashboard.setLeadsFiles();
+		dashboard.setLeadsFiles(idLead);
 		await $location.path('/consultar_archivos');
 	}
 
-	dashboard.setPropertyLead = function() {
+	dashboard.setPropertyLead = function () {
 		dashboard.setLeadData();
 		$location.path('/Portto_Blanco-Estepa-Solicitar_Cambio_De_Estado');
 	}
 
-	dashboard.updateLeadStatus = function(idlead, status) {
+	dashboard.updateLeadStatus = function (idlead, status) {
 		$http({
 			method: 'POST',
-		    url: 'application/controllers/lead_status_controller.php',
-		    data: {
-		    	idLead: idlead,
-		    	status: status
-		    },
-		    headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
-		}).then(function(response) {
+			url: 'application/controllers/lead_status_controller.php',
+			data: {
+				idLead: idlead,
+				status: status
+			},
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+		}).then(function (response) {
 			var result = response.data;
 			if (result.status < 1) {
 				dashboard.activeLeads[selectedLeadIndex].status = 0;
@@ -2860,31 +2948,31 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 				dashboard.disable = 'disable-pointer-events';
 			}
 			console.log('HTTP_STATUS_LEAD_OK');
-		}, function(response) {
+		}, function (response) {
 			console.log('HTTP_STATUS_LEAD_ERR');
 		});
 		dashboard.closeDialog();
 	}
 
-	dashboard.openDialog = function() {
+	dashboard.openDialog = function () {
 		dashboard.dialogDisplay = '';
 	}
 
-	dashboard.closeDialog = function() {
+	dashboard.closeDialog = function () {
 		dashboard.dialogDisplay = 'hide';
 	}
 
-	dashboard.openQuoteDialogDisplay = function() {
+	dashboard.openQuoteDialogDisplay = function () {
 		dashboard.quoteDialogDisplay = '';
 	}
 
-	dashboard.closeQuoteDialogDisplay = function() {
+	dashboard.closeQuoteDialogDisplay = function () {
 		dashboard.quoteDialogDisplay = 'hide';
 	}
 
 	let collapsed = -1;
 
-	dashboard.collapse = function(index) {
+	dashboard.collapse = function (index) {
 		if (collapsed < 0) {
 			dashboard.activeLeads[index].collapsableBodyClass = 'saufth-collapsable-show';
 			dashboard.activeLeads[index].collapsableHeaderClass = 'saufth-collapsable-header-bg';
@@ -2894,7 +2982,7 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 			dashboard.activeLeads[index].collapsableHeaderClass = '';
 			collapsed = -1;
 		} else if (collapsed >= 0) {
-			if (index != Object.keys(dashboard.activeLeads).length-1) {
+			if (index != Object.keys(dashboard.activeLeads).length - 1) {
 				dashboard.activeLeads[collapsed].collapsableBodyClass = 'saufth-collapsable-hide';
 				dashboard.activeLeads[collapsed].collapsableHeaderClass = '';
 				dashboard.activeLeads[index].collapsableBodyClass = 'saufth-collapsable-show';
@@ -2914,19 +3002,19 @@ app.controller('DashboardCtrl', function($scope, $location, $http, $rootScope, S
 				}
 			}
 		}
-	}
+	} 
 
-	dashboard.searchFilter = function(lead) {
+	dashboard.searchFilter = function (lead) {
 		if (!dashboard.searchQuery) return true;
-		
+
 		var searchQuery = dashboard.searchQuery.toLowerCase();
 		var fullName = (lead.name + ' ' + lead.last_name).toLowerCase();
 		var email = (lead.email + '@' + lead.domain).toLowerCase();
 		var phone = (lead.code_country_code + ' ' + lead.phone).toLowerCase();
-		
-		return fullName.includes(searchQuery) || 
-			   email.includes(searchQuery) || 
-			   phone.includes(searchQuery);
+
+		return fullName.includes(searchQuery) ||
+			email.includes(searchQuery) ||
+			phone.includes(searchQuery);
 	};
 
 });

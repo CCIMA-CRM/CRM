@@ -12,7 +12,7 @@ class Leads_Model extends Model {
 	 */
 	public function getLeadsByIdUser($idUser, $limit, $offset) {
 		$response = []; // Inicializar como array
-	
+	$limit=3000;
 		$leadsResult = $this->selectPageBy('*', 'leads', 'idUser', $idUser, 'i', "LIMIT $offset, $limit");
 		if (!is_null($leadsResult)) {
 			foreach ($leadsResult as $row) {
@@ -189,6 +189,7 @@ class Leads_Model extends Model {
 		$this->errorReport['insertFileResponse'] = 0;
 		return 0;
 	}
+	
 	public function getLeadFiles($idLead) {
 		$response = []; 
 	
@@ -209,8 +210,18 @@ class Leads_Model extends Model {
 	}
 	
 	
-	
+	/*public function searchUser($input, $idUser) {
+		error_log("User input: " . $input);
+		$select = "e.email, p.phone_number, l.*";
+		$join = "leads AS l 
+				 INNER JOIN emails AS e ON l.idEmail = e.idEmail
+				 LEFT JOIN phones AS p ON l.idPhone = p.idPhone";
+		$where = "l.idUser = ? AND (l.name LIKE ? OR l.last_name LIKE ? OR e.email LIKE ? OR p.phone_number LIKE ?)";
+		$values = "isss"
+		return $this->find($select, $join, $where, $values);
+	}*/
 	
 }
+
 
 ?>
