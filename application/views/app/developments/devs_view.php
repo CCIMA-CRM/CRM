@@ -171,14 +171,14 @@
 													Beta Completo
 												</md-button>
 											</md-menu-item>
-											<md-menu-item>
+											<!-- <md-menu-item>
 												<md-button href="#!/inventary/layouts/Calamanda">
 													Calamanda
 												</md-button>
-											</md-menu-item> 
+											</md-menu-item>  -->
 											<md-menu-item>
-												<md-button href="#!/inventary/layouts/Calamanda II">
-													Calamanda II
+												<md-button href="#!/inventary/layouts/Calamanda%202">
+													Calamanda 2
 												</md-button>
 											</md-menu-item> 
 											

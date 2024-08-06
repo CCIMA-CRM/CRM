@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="media/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="media/assets/css/navetec.css">
     <link rel="stylesheet" type="text/css" href="media/assets/css/helpers.css">
+    <link rel="stylesheet" type="text/css" href="media/assets/css/coutdown.css">
 
     <script type="text/javascript" src="media/bower_components/jquery.min.js"></script>
     <script type="text/javascript" src="media/bower_components/materialize/js/materialize.min.js"></script>
@@ -50,16 +51,16 @@
                 Beta Business Park
             </div>
         </a>
+		<!-- <md-divider></md-divider>
+    <a href="#!/Navetec-Calamanda_Business_Park" ng-click="close()">
+        <div class="link-body link-nav">
+            Calamanda Business Park
+        </div> -->
+    </a>
 		<md-divider></md-divider>
     <a href="#!/Navetec-Calamanda_Business_Park" ng-click="close()">
         <div class="link-body link-nav">
             Calamanda Business Park
-        </div>
-    </a>
-		<md-divider></md-divider>
-    <a href="#!/Navetec-Calamanda_Business_Park_2" ng-click="close()">
-        <div class="link-body link-nav">
-            Calamanda 2 Business Park
         </div>
     </a>
     <md-divider></md-divider>
@@ -102,6 +103,12 @@
 		<a href="#!/Navetec-Sur_57_E2_Business_Park" ng-click="close()">
             <div class="link-body link-nav">
                 Sur 57 Business Park Etapa 2 
+            </div>
+        </a>
+		<md-divider></md-divider>
+		<a href="#!/Navetec-Sur_57_E3_Business_Park" ng-click="close()">
+            <div class="link-body link-nav">
+                Sur 57 Business Park Etapa 3 
             </div>
         </a>
 		<md-divider></md-divider>
@@ -530,5 +537,9 @@
         </div>
     </footer>
 
+
+     
+    <script src="media/assets/js/simplyCountdown.min.js"></script>
+    <script src="media/assets/js/countdown.js"></script>
 </body>
 </html>

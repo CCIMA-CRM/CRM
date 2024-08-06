@@ -221,13 +221,11 @@ app.config(function($routeProvider) {
 		controller: 'UpdateLeadCtrl',
 		controllerAs: 'dashboard'
 	})
-	.when('/consultar_archivos', {
+		.when('/consultar_archivos', {
 		templateUrl: 'application/views/app/dashboard/consultar_archivos_leads_view.php',
 		controller: 'DashboardCtrl',
 		controllerAs: 'dashboard'
 	})
-
-
 
 	/***** quote *****/
 
@@ -949,18 +947,10 @@ app.config(function($routeProvider) {
 		controller: 'NvtCeltaCtrl',
 		controllerAs: 'nvtCelta'
 	})
-	/***** CALAMANDA*****/
-	/* Inventary */
-
-	.when('/Navetec-Calamanda_Business_Park-Inventary', {
-		templateUrl: 'application/views/navetec/inventary/celta_inventary_view.php',
-		controller: 'NvtCeltaCtrl',
-		controllerAs: 'nvtCelta'
-	})
 
 	/* Quote */
 
-	.when('/Navetec-Calamanda_Business_Park', {
+	/* .when('/Navetec-Calamanda_Business_Park', {
 		templateUrl: 'application/views/navetec/quote/calamanda_quote_view.php',
 		controller: 'NvtCalamandaQuoteCtrl',
 		controllerAs: 'nvtCalamanda'
@@ -974,24 +964,24 @@ app.config(function($routeProvider) {
 		templateUrl: 'application/views/navetec/quote/calamanda_modulob_quote_view.php',
 		controller: 'NvtCalamandaQuoteCtrl',
 		controllerAs: 'nvtCalamanda'
-	})
+	}) */
 	/* Quote Calamanda 2*/
 
-	.when('/Navetec-Calamanda_Business_Park_2', {
+	.when('/Navetec-Calamanda_Business_Park', {
 		templateUrl: 'application/views/navetec/quote/calamanda_quote_view_ii.php',
 		controller: 'NvtCalamandaDosQuoteCtrl',
 		controllerAs: 'nvtCalamanda'
 	})
-	/* .when('/Navetec-Calamanda_ModuloA_Business_Park_2', {
-		templateUrl: 'application/views/navetec/quote/calamanda_moduloa_quote_view.php',
-		controller: 'NvtCalamandaQuoteCtrl',
+	.when('/Navetec-Calamanda_ModuloA_Business_Park', {
+		templateUrl: 'application/views/navetec/quote/calamanda_moduloa_quote_view_ii.php',
+		controller: 'NvtCalamandaDosQuoteCtrl',
 		controllerAs: 'nvtCalamanda'
 	})
-	.when('/Navetec-Calamanda_ModuloB_Business_Park_2', {
-		templateUrl: 'application/views/navetec/quote/calamanda_modulob_quote_view.php',
-		controller: 'NvtCalamandaQuoteCtrl',
+	.when('/Navetec-Calamanda_ModuloB_Business_Park', {
+		templateUrl: 'application/views/navetec/quote/calamanda_modulob_quote_view_ii.php',
+		controller: 'NvtCalamandaDosQuoteCtrl',
 		controllerAs: 'nvtCalamanda'
-	}) */
+	})
 
 	
 	/***** La Presa *****/
@@ -1108,7 +1098,7 @@ app.config(function($routeProvider) {
 	.when('/Navetec-Sur_57_E2_Business_Park', {
 		templateUrl: 'application/views/navetec/quote/sur_57_ii_quote_view.php',
 		controller: 'NvtSurNuevoQuoteCtrl',
-		controllerAs: 'nvtSurNuevo'
+		controllerAs: 'nvtSurNuevo' 
 	})
 	.when('/Navetec-Sur_57_E3_Business_Park', {
 		templateUrl: 'application/views/navetec/quote/sur_57_iii_quote_view.php',
@@ -1980,8 +1970,8 @@ app.controller('UsersCtrl', function($scope, $rootScope, $http, $location, Sessi
 			config: {
 				current: 1,
 				limit: {
-					members: [10, 20, 30, 40, 50],
-					selected: 10
+					members: [25, 50, 100, 250, 500],
+					selected: 25
 				}
 			},
 			data: {
@@ -1992,17 +1982,13 @@ app.controller('UsersCtrl', function($scope, $rootScope, $http, $location, Sessi
 			}
 		},
 		filters: {
-			profile: {
+			profiles: {
 				members: ['Director', 'Gerente', 'Asesor'],
 				selected: 'Gerente'
 			},
 			status: {
 				members: ['Inactivo', 'Activo'],
 				selected: 1
-			},
-			name: {
-				members: ['Hombre', 'Mujer', 'Quimera'],
-				selected: 'Quimera'
 			}
 		},
 		options: {
@@ -3023,7 +3009,6 @@ app.controller('DashboardCtrl', function ($scope, $location, $http, $rootScope, 
 	};
 
 });
-
 
 /********** Inventary **********/
 
@@ -4362,7 +4347,7 @@ app.controller('LayoutCtrl', function($routeParams, $location, $http, Session, S
 		inmovables: null
 	};
 
-	inventary.paginationLimits = [25 , 50, 100, 250, 500];
+	inventary.paginationLimits = [25, 50, 100, 250, 500];
 
 	let resetPagination = function() {
 		return {
@@ -9611,8 +9596,6 @@ app.controller('NvtSurNuevoQuoteCtrl', function($scope, Inmovables, Developments
 	init();
 
 });
-
-
 app.controller('NvtSurNuevoTresQuoteCtrl', function($scope, Inmovables, Developments, Status) {
 
 	var nvtSurNuevoTres = this;
@@ -9723,6 +9706,9 @@ app.controller('NvtSurNuevoTresQuoteCtrl', function($scope, Inmovables, Developm
 	init();
 
 });
+
+
+
 /********** Habitta **********/
 
 /***** Inventary *****/
@@ -14101,6 +14087,7 @@ app.controller('InsertLeadCtrl', function($scope, $location, $http, Session) {
         }
     }
 });
+
 app.controller('LandingCtrl', function($scope, $location, $http) {
 	
 	var landing = this;
@@ -14185,47 +14172,6 @@ app.controller('LandingCtrl', function($scope, $location, $http) {
 
 });
 
-app.controller('FilesCtrl', function($scope, $location, $http, $rootScope, Session) {
-	Session.isLogged().then(function(response) {
-		if (response < 1) {
-			$location.path('/login');
-		}
-		if ($rootScope.selectedLead.id < 1) {
-			$location.path('/dashboard');
-		}
-	});
-	var dashboard = this;
-	dashboard.leadFiles = [];
-	var data = {};
-
-	dashboard.setLeadsFiles = function() {
-		$rootScope.selectedLead = {
-			idLead: dashboard.activeLeads[selectedLeadIndex].idLead
-		};
-
-		$http({
-			method: 'POST',
-			url: 'application/controllers/consultar_archivos_leads_controller.php',
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-			data: $.param({
-				idLead: $rootScope.selectedLead.idLead
-			})
-		}).then(function(response) {
-			if (response.data.status === 1) {
-				console.log('response: ', response)
-				let temporales = response.data
-				console.log('temporal: ', temporal.files)
-				dashboard.leadFiles = temporal
-				console.log('dashboard.leadFiles: ', dashboard.leadFiles)
-			} else {
-				dashboard.leadFiles = [];
-				console.error('No se encontraron archivos para el lead');
-			}
-		}, function(response) {
-			console.error('Error al consultar archivos', response);
-		});
-	}
-});
 app.controller('UpdateLeadCtrl', function($scope, $location, $http, $rootScope, Session) {
 
 	Session.isLogged().then(function(response) {

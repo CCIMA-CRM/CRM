@@ -53,7 +53,8 @@
                     <tbody>
                         <tr ng-repeat="file in dashboard.leadFiles">
                             <td>
-                            <a ng-href="ccimax/application/{{file.URL}}" download="{{file.URL.split('/').pop()}}" class="file-link">{{file.URL.split('/').pop()}}</a>
+                              <a ng-href="ccimax/application/{{file.URL}}" download="{{file.URL.split('/').pop()}}" class="file-link">{{file.URL.split('/').pop()}}</a>
+
                               
                                 </a>
                             </td>

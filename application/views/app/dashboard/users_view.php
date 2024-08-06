@@ -83,112 +83,153 @@
                                 </md-option>
                             </md-select>
                         </md-input-container>
+                        
+                        <md-input-container>
+                            <label>
+                                <span class="gray-txt fs__13px proxima-soft-regular">
+                                    Nombre
+                                </span>
+                            </label>
+                            <!-- {{member.name.first + ' ' + member.name.last}} -->
+                            
+                            <md-select name="groupStatus" ng-model="users.group.filters.status.selected" ng-change="users.group.resetAndUpdate()">
+                                <md-option ng-repeat="status in users.group.filters.status.members" ng-value="$index">
+                                    <span class="dark__text fs__14px proxima-soft-regular">{{name}}</span>
+                                
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
 
-                <div class="pl-24"></div>
-                <!-- Buscar por Nombre -->
-                <md-input-container flex="30">
-                    <label>Escribir Nombre</label>
-                    <input ng-model="searchText" placeholder="Escriba el nombre...">
-                </md-input-container>
-            
                     </div>
                 </div>
 
                 <div class="overflow-h border-box--blue mt-16 border-r4">
-    <div class="bluegray-light2-bg border-box--blue-b px-24">
-        <div layout="row">
-            <div layout="row" layout-align="start center" flex="70" class="mt-12">
-                <md-input-container>
-                    <label>
-                        <span class="gray-txt fs__13px proxima-soft-regular">Páginas</span>
-                    </label>
-                    <md-select name="groupPages" ng-model="users.group.pagination.config.current" ng-change="users.group.update()">
-                        <md-option ng-repeat="page in users.group.pagination.data.book" ng-value="page">
-                            <span class="dark_text fs_14px proxima-soft-regular">{{page}}</span>
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-                <div class="pl-24"></div>
-                <md-input-container>
-                    <label>
-                        <span class="gray-txt fs__13px proxima-soft-regular">Filas</span>
-                    </label>
-                    <md-select name="groupLimit" ng-model="users.group.pagination.config.limit.selected" ng-change="users.group.resetAndUpdate()">
-                        <md-option ng-repeat="limit in users.group.pagination.config.limit.members" ng-value="limit">
-                            <span class="dark_text fs_14px proxima-soft-regular">{{limit}}</span>
-                        </md-option>
-                    </md-select>
-            </div>
-            <div class="dark_text fs_12px proxima-soft-light ml-24" layout="row" layout-align="end center" flex="30">
-                {{users.group.pagination.data.start}} - {{users.group.pagination.data.end}} de {{users.group.pagination.data.num_of_rows}}
-            </div>
-        </div>
-    </div>
-    <div class="overflow-x-s overflow-y-h">
-        <div class="table-responsive simple-table-content">
-            <table class="table table-primary" id="table">
-                <thead class="border-box--blue-b px-24 py-10">
-                    <tr scope="col" class="dark_text fs_14px proxima-soft-semibold">
-                        <th scope="col" flex="5" layout-align="left center">#</th>
-                        <th scope="col" flex="5" layout-align="left center">Username</th>
-                        <th scope="col" flex="5" layout-align="left center">Nombre</th>
-                        <th scope="col" flex="5" layout-align="left center">Correo</th>
-                        <th scope="col" flex="5" layout-align="left center">Telefono</th>
-                        <th scope="col" flex="5" layout-align="left center">Perfil</th>
-                        <th scope="col" flex="5" layout-align="left center">Creacion</th>
-                        <th scope="col" flex="5" layout-align="left center">&#8942;</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="border-box--blue-b px-24" ng-repeat="member in users.group.members | filter: filterMembers">
-                        <td>{{users.group.pagination.data.start + $index}}</td>
-                        <td>{{member.username}}</td>
-                        <td>{{member.name.first + ' ' + member.name.last}}</td>
-                        <td>{{member.email.username + '@' + member.email.domain.name}}</td>
-                        <td>{{member.phone.number}}</td>
-                        <td>{{users.group.filters.profiles.members[member.idProfile - 1]}}</td>
-                        <td>{{member.create_at}}</td>
-                        <td>
-                            <md-menu md-offset="-164 -200" ng-controller="ContactMenuCtrl as contactCtrl">
-                                <div class="pointer" ng-click="contactCtrl.openMenu($mdMenu, $event)">
-                                    <i class="material-icons black-text">more_vert</i>
+                    <div class="bluegray-light2-bg border-box--blue-b px-24">
+                        <div layout="row">
+
+                            <div layout="row" layout-align="start center" flex="50" class="mt-12">
+
+                                <md-input-container>
+                                    <label>
+                                        <span class="gray-txt fs__13px proxima-soft-regular">
+                                            Páginas
+                                        </span>
+                                    </label>
+                                    <md-select name="groupPages" ng-model="users.group.pagination.config.current" ng-change="users.group.update()">
+                                        <md-option ng-repeat="page in users.group.pagination.data.book" ng-value="page">
+                                            <span class="dark__text fs__14px proxima-soft-regular">{{page}}</span>
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+
+                                <div class="pl-24"></div>
+
+                                <md-input-container>
+                                    <label>
+                                        <span class="gray-txt fs__13px proxima-soft-regular">
+                                            Filas
+                                        </span>
+                                    </label>
+                                    <md-select name="groupLimit" ng-model="users.group.pagination.config.limit.selected" ng-change="users.group.resetAndUpdate()">
+                                        <md-option ng-repeat="limit in users.group.pagination.config.limit.members" ng-value="limit">
+                                            <span class="dark__text fs__14px proxima-soft-regular">{{limit}}</span>
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            
+                            <div class="dark__text fs__12px proxima-soft-light ml-24" layout="row" layout-align="end center" flex="50">
+                                {{users.group.pagination.data.start}} - {{users.group.pagination.data.end}} de {{users.group.pagination.data.num_of_rows}}
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="overflow-x-s overflow-y-h">
+                        <div class="simple-table-content">
+                            <div class="border-box--blue-b px-24 py-10">
+                                <div layout="row" class="dark__text fs__14px proxima-soft-semibold">
+                                    <div layout="row" flex="5" layout-align="left center">#</div>
+                                    <div layout="row" flex="10" layout-align="left center">Username</div>
+                                    <div layout="row" flex="25" layout-align="left center">Nombre</div>
+                                    <div layout="row" flex="25" layout-align="left center">Correo</div>
+                                    <div layout="row" flex="10" layout-align="left center">Teléfono</div>
+                                    <div layout="row" flex="10" layout-align="left center">Perfil</div>
+                                    <div layout="row" flex="10" layout-align="left center">Creación</div>
+                                    <div layout="row" flex="5" layout-align="center center">&#8942;</div>
                                 </div>
-                                <md-menu-content>
-                                    <md-menu-item ng-class="users.group.options.managers">
-                                        <md-button ng-click="users.team.request(member.id)">Miembros de equipo</md-button>
-                                    </md-menu-item>
-                                    <md-menu-item ng-class="users.group.options.managers">
-                                        <md-button ng-click="users.free.request(member.team, 3)">Asesores libres</md-button>
-                                    </md-menu-item>
-                                    <md-menu-item>
-                                        <md-button ng-click="users.leads.request(member.id)">Clientes y leads</md-button>
-                                    </md-menu-item>
-                                    <md-menu-divider></md-menu-divider>
-                                    <md-menu-item>
-                                        <md-button ng-click="users.update(member, 'group')">Editar</md-button>
-                                    </md-menu-item>
-                                    <md-menu-item ng-class="users.group.options.menu_items.delete">
-                                        <md-button ng-click="users.group.delete(member.id)">Eliminar</md-button>
-                                    </md-menu-item>
-                                    <md-menu-item ng-class="users.group.options.menu_items.restore">
-                                        <md-button ng-click="users.group.active(member.id)">Restaurar</md-button>
-                                    </md-menu-item>
-                                </md-menu-content>
-                            </md-menu>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="simple-table-content">
-            <div class="border-box--blue-b px-24" ng-repeat="member in users.group.members">
+                            </div>
+                            <div class="border-box--blue-b px-24" ng-repeat="member in users.group.members">
+                                <div layout="row" class="dark__text fs__14px proxima-soft-regular">
+                                    <div layout="row" flex="5" layout-align="left center">{{users.group.pagination.data.start+$index}}</div>
+                                    <div layout="row" flex="10" layout-align="left center">{{member.username}}</div>
+                                    <div layout="row" flex="25" layout-align="left center">{{member.name.first + ' ' + member.name.last}}</div>
+                                    <div layout="row" flex="25" layout-align="left center">{{member.email.username + '@' + member.email.domain.name}}</div>
+                                    <div layout="row" flex="10" layout-align="left center">{{member.phone.number}}</div>
+                                    <div layout="row" flex="10" layout-align="left center">{{users.group.filters.profiles.members[member.idProfile-1]}}</div>
+                                    <div layout="row" flex="10" layout-align="left center">{{member.create_at}}</div>
+                                    <div layout="row" flex="5" layout-align="center center">
+                                        <md-menu md-offset="-164 -200" ng-controller="ContactMenuCtrl as contactCtrl">
+
+                                            <div class="pointer" ng-click="contactCtrl.openMenu($mdMenu, $event)">
+                                                <i class="material-icons black-text">more_vert</i>
+                                            </div>
+
+                                            <md-menu-content>
+
+                                                <md-menu-item ng-class="users.group.options.managers">
+                                                    <md-button ng-click="users.team.request(member.id)">
+                                                        Miembros de equipo
+                                                    </md-button>
+                                                </md-menu-item>
+
+                                                <md-menu-item ng-class="users.group.options.managers">
+                                                    <md-button ng-click="users.free.request(member.team, 3)">
+                                                        Asesores libres
+                                                    </md-button>
+                                                </md-menu-item>
+        
+                                                <md-menu-item>
+                                                    <md-button ng-click="users.leads.request(member.id)">
+                                                        Clientes y leads
+                                                    </md-button>
+                                                </md-menu-item>
+
+                                                <md-menu-divider></md-menu-divider>
+
+                                                <md-menu-item>
+                                                    <md-button ng-click="users.update(member, 'group')">
+                                                        Editar
+                                                    </md-button>
+                                                </md-menu-item>
+
+                                                <md-menu-item ng-class="users.group.options.menu_items.delete">
+                                                    <md-button ng-click="users.group.delete(member.id)">
+                                                        Eliminar
+                                                    </md-button>
+                                                </md-menu-item>
+        
+                                                <md-menu-item ng-class="users.group.options.menu_items.restore">
+                                                    <md-button ng-click="users.group.active(member.id)">
+                                                        Restaurar
+                                                    </md-button>
+                                                </md-menu-item>
+                
+                                            </md-menu-content>
+                
+                                        </md-menu>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dark__text proxima-soft-regular fs__16px center p-16" ng-class="users.group.status.value">
+                                {{users.group.status.message}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
             </div>
-            <div class="dark_text proxima-soft-regular fs_16px center p-16" ng-class="users.group.status.value">
-                {{users.group.status.message}}
-            </div>
         </div>
-    </div>
-</div>
+    
         <div class="modal-dialog white__bg" ng-class="users.search.options.modal_display">
     
             <div class="pl-16 dark__bg" layout="row">
@@ -512,7 +553,6 @@
                             
                             <div class="dark__text fs__12px proxima-soft-light ml-24" layout="row" layout-align="end center" flex="50">
                                 {{users.free.pagination.data.start}} - {{users.free.pagination.data.end}} de {{users.free.pagination.data.num_of_rows}}
-                        
                             </div>
         
                         </div>

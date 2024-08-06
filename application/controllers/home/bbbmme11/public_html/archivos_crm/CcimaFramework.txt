@@ -1,0 +1,15 @@
+CcimaFramework
+CcimaTracker
+cd Settings
+cd scripts
+cd linux
+nano start_all.sh
+cd ..
+cd mongoshell
+
+
+cambios
+pm2 restart all 
+
+sabor si estan funcionando todos los aplicativos
+pm2 status 

@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="media/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="media/assets/css/helpers.css">
     <link rel="stylesheet" type="text/css" href="media/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="media/assets/css/coutdown.css">
     <script type="text/javascript" src="media/bower_components/jquery.min.js"></script>
     <script type="text/javascript" src="media/bower_components/materialize/js/materialize.min.js"></script>
     <script type="text/javascript" src="media/assets/js/counter.js"></script>
@@ -152,6 +153,7 @@
                     </div>
                 </div>
             </div>
+
 
             <div class="col s12 m6 p-0 m-0">
                 <div class="bg-header-main">
@@ -497,5 +499,26 @@
         </div>
     </footer>
 
+    
+    <script src="media/assets/js/simplyCountdown.min.js"></script>
+    <script src="media/assets/js/countdown.js"></script>
+
 </body>
 </html>
+
+<!-- <md-divider></md-divider>
+		<a href="#!/Navetec-Sur_57_E2_Business_Park" ng-click="close()">
+            <div class="link-body link-nav">
+                Sur 57 Business Park Etapa 3 
+            </div>
+        </a> -->
+        <!-- <a href="" target="_blank">
+        <div class=" btn-wsp" id="portada">
+            <div class="">
+                <h4>SUR 57 Etapa 3</h4>
+                <p >Próxima Apertura</p>
+            </div>
+
+            <div id="cuenta"></div>
+        </div>
+     </a> -->
