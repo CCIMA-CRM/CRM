@@ -5,7 +5,7 @@ abstract class Connection {
     private const DB_HOST = 'localhost';
     private const DB_USER = 'root'; // bbbme11_ccima
     private const DB_PASS = ''; //GBUD0G2j6N*7
-	private const DB_NAME = 'ccima';
+	private const DB_NAME = 'ccimax';
 	private const COLLATION = '"utf8"';
 	
 	private $conn;

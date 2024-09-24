@@ -24,7 +24,7 @@
 
 </head>
 
-<body ng-controller="NvtBetaQuoteCtrl as nvtBeta">
+<body ng-controller="NvtBetaRentaQuoteCtrl as nvtBetaRent">
   
 	
     	<!--Menu actualizado 19-DIC-2022 -->
@@ -131,12 +131,12 @@
         </nav>
     </div>
 
-	<div class="modal-dialog" ng-class="nvtBeta.dialogDisplay">
-		<div class="backdrop-dialog" ng-click="nvtBeta.closeDialog()"></div>
+	<div class="modal-dialog" ng-class="nvtBetaRent.dialogDisplay">
+		<div class="backdrop-dialog" ng-click="nvtBetaRent.closeDialog()"></div>
 			<div class="container-dialog p-20">
 				<div class="toolbar-dialog blue-txt">
 					Cotización
-					<span ng-click="nvtBeta.closeDialog()">
+					<span ng-click="nvtBetaRent.closeDialog()">
 						<img class="btn-close-dialog mt-4" src="media/assets/img/icons/close.svg">
 					</span>
 				</div>
@@ -147,31 +147,31 @@
 					
 					<div class="p-20 grey lighten-5">
 					<div class="p-5">
-						<h6 class="futura-med">Navetec Business Park {{nvtBeta.propertyData.condominium}}</h6>
+						<h6 class="futura-med">Navetec Business Park {{nvtBetaRent.propertyData.condominium}}</h6>
 					</div>
 					<div class="p-5">
-						<h6 class="futura-light">{{nvtBeta.propertyData.propertyClass}}</h6>
+						<h6 class="futura-light">{{nvtBetaRent.propertyData.propertyClass}}</h6>
 					</div>
 					<div class="p-5">
-						<h6 class="futura-light">{{nvtBeta.propertyData.type}}</h6>
+						<h6 class="futura-light">{{nvtBetaRent.propertyData.type}}</h6>
 					</div>
 					<div class="p-5">
-						<h6 class="futura-light">Número {{nvtBeta.propertyData.number}}</h6>
+						<h6 class="futura-light">Número {{nvtBetaRent.propertyData.number}}</h6>
 					</div>
 					<!-- <div class="p-5">
-						<h6 class="futura-light">Dimenciones: {{nvtBeta.propertyData.dimensions}}</h6>
+						<h6 class="futura-light">Dimenciones: {{nvtBetaRent.propertyData.dimensions}}</h6>
 					</div> -->
 					<div class="p-5">
-						<h6 class="futura-light">Área de {{nvtBeta.propertyData.area}} M&sup2;</h6>
+						<h6 class="futura-light">Área de {{nvtBetaRent.propertyData.area}} M&sup2;</h6>
 					</div>
 					<div class="p-5">
-						<h6 class="futura-light">Precio por M&sup2; de ${{nvtBeta.propertyData.cost_m2}} MXN</h6>
+						<h6 class="futura-light">Precio por M&sup2; de ${{nvtBetaRent.propertyData.cost_m2}} MXN</h6>
 					</div>
 					<div class="p-5">
-						<h6 class="futura-light green-text">Precio de ${{nvtBeta.propertyData.total}} MXN</h6>
+						<h6 class="futura-light green-text">Precio de ${{nvtBetaRent.propertyData.total}} MXN</h6>
 					</div>
-					<div class="p-5" ng-class="nvtBeta.propertyData.rentMsg">
-						<h6 class="futura-light green-text">Renta mensual de ${{nvtBeta.propertyData.rent}} MXN <span style="color: #857C82; font-size: 12px;">+ I.V.A.</span></h6>
+					<div class="p-5" ng-class="nvtBetaRent.propertyData.rentMsg">
+						<h6 class="futura-light green-text">Renta mensual de ${{nvtBetaRent.propertyData.rent}} MXN <span style="color: #857C82; font-size: 12px;">+ I.V.A.</span></h6>
 					</div>
 				</div>
 			</div>
@@ -257,7 +257,7 @@
 						<text transform="matrix(0.9736 0 0 1 11.3394 54.0303)" class="stz2 futura-book stz4">ALMACEN</text>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[34]" ng-click="nvtBeta.showPropertyData(23, '1', nvtBeta.inmovables[34].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[34]" ng-click="nvtBetaRent.showPropertyData(75, '1', nvtBetaRent.inmovables[34].idProperty)">
 					<polygon class="property nvt-sprite-1" points="60.9,0.1 117.5,0.1 117.5,127.8 60.9,127.8"/>
 					<g id="Info_1_">
 						<g id="Titulo_1_">
@@ -272,7 +272,7 @@
 						</g>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[35]" ng-click="nvtBeta.showPropertyData(23, '2', nvtBeta.inmovables[35].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[35]" ng-click="nvtBetaRent.showPropertyData(75, '2', nvtBetaRent.inmovables[35].idProperty)">
 					<polygon class="property nvt-sprite-2" points="174,0 174,127.9 117.5,127.8 117.5,0.1"/>
 					<text transform="matrix(1 0 0 1 135.2494 8.3621)" class="white__fill futura-light stz8">04.00</text>
 					<text transform="matrix(1 0 0 1 135.2494 125.0085)" class="white__fill futura-light stz8">04.00</text>
@@ -283,7 +283,7 @@
 						<text transform="matrix(0.9736 0 0 1 141.4219 65.3301)" class="stz2 futura-book stz4">02</text>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[36]" ng-click="nvtBeta.showPropertyData(23, '3', nvtBeta.inmovables[36].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[36]" ng-click="nvtBetaRent.showPropertyData(75, '3', nvtBetaRent.inmovables[36].idProperty)">
 					<polygon class="property nvt-sprite-1" points="230.5,0 230.5,127.8 174,127.9 174,0"/>
 					<text transform="matrix(1 0 0 1 190.976 8.3621)" class="white__fill futura-light stz8">04.00</text>
 					<text transform="matrix(1 0 0 1 190.9779 125.0085)" class="white__fill futura-light stz8">04.00</text>
@@ -294,7 +294,7 @@
 						<text transform="matrix(0.9736 0 0 1 197.1504 65.3301)" class="stz2 futura-book stz4">03</text>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[37]" ng-click="nvtBeta.showPropertyData(23, '4', nvtBeta.inmovables[37].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[37]" ng-click="nvtBetaRent.showPropertyData(75, '4', nvtBetaRent.inmovables[37].idProperty)">
 					<polygon class="property nvt-sprite-2" points="287,0 286.9,127.5 230.5,127.8 230.5,0"/>
 					<text transform="matrix(1 0 0 1 247.4818 8.3621)" class="white__fill futura-light stz8">04.00</text>
 					<text transform="matrix(1 0 0 1 247.4818 125.0085)" class="white__fill futura-light stz8">04.00</text>
@@ -305,7 +305,7 @@
 						<text transform="matrix(0.9736 0 0 1 253.6543 65.3301)" class="stz2 futura-book stz4">04</text>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[38]" ng-click="nvtBeta.showPropertyData(23, '5', nvtBeta.inmovables[38].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[38]" ng-click="nvtBetaRent.showPropertyData(75, '5', nvtBetaRent.inmovables[38].idProperty)">
 					<polygon class="property nvt-sprite-1" points="343.9,0 343.9,127.4 286.9,127.5 287,0"/>
 					<text transform="matrix(1 0 0 1 304.1303 8.3621)" class="white__fill futura-light stz8">04.00</text>
 					<text transform="matrix(1 0 0 1 304.1303 125.0085)" class="white__fill futura-light stz8">04.00</text>
@@ -316,7 +316,7 @@
 						<text transform="matrix(0.9736 0 0 1 310.3027 65.3301)" class="stz2 futura-book stz4">05</text>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[39]" ng-click="nvtBeta.showPropertyData(23, '6', nvtBeta.inmovables[39].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[39]" ng-click="nvtBetaRent.showPropertyData(75, '6', nvtBetaRent.inmovables[39].idProperty)">
 					<polygon class="property nvt-sprite-2" points="411.1,0 411.1,127.4 343.9,127.4 343.9,0"/>
 					<text transform="matrix(1 0 0 1 366.2299 8.3621)" class="white__fill futura-light stz8">04.75</text>
 					<text transform="matrix(1 0 0 1 366.2299 125.0085)" class="white__fill futura-light stz8">04.75</text>
@@ -331,7 +331,7 @@
 						<polygon class="stz9" points="352.3,54.9 352.2,49.7 352.1,44.2 357.6,49.4"/>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[40]" ng-click="nvtBeta.showPropertyData(23, '7', nvtBeta.inmovables[40].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[40]" ng-click="nvtBetaRent.showPropertyData(75, '7', nvtBetaRent.inmovables[40].idProperty)">
 					<polygon class="property nvt-sprite-1" points="479.4,0.1 479.4,127.6 411.1,127.4 411.1,0"/>
 					<text transform="matrix(1 0 0 1 433.9682 8.3621)" class="white__fill futura-light stz8">04.75</text>
 					<text transform="matrix(1 0 0 1 433.9682 125.0085)" class="white__fill futura-light stz8">04.75</text>
@@ -479,7 +479,7 @@
 						<text transform="matrix(0.9736 0 0 1 7.9395 78.0176)" class="stx3 futura-book stx5">MÁQUINAS</text>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[41]" ng-click="nvtBeta.showPropertyData(23, '16', nvtBeta.inmovables[41].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[41]" ng-click="nvtBetaRent.showPropertyData(75, '16', nvtBetaRent.inmovables[41].idProperty)">
 					<polygon class="property nvt-sprite-1" points="60.1,1.4 116.7,1.4 116.7,129.3 60.1,129.3"/>
 					<g>
 						<text transform="matrix(0.9736 0 0 1 72.1265 55.418)" class="stx3 futura-book stx5">LOCAL </text>
@@ -490,7 +490,7 @@
 					<text transform="matrix(0 -1 1 0 67.6985 77.8672)" class="stx7 futura-light stx9">09.00</text>
 					<text transform="matrix(1 0 0 1 72.6272 75.5671)" class="stx7 futura-light stx9">36.00m2</text>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[42]" ng-click="nvtBeta.showPropertyData(23, '17', nvtBeta.inmovables[42].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[42]" ng-click="nvtBetaRent.showPropertyData(75, '17', nvtBetaRent.inmovables[42].idProperty)">
 					<polygon class="property nvt-sprite-2" points="173.2,1.3 173.2,129.3 116.7,129.3 116.7,1.4"/>
 					<text transform="matrix(1 0 0 1 134.4329 9.7161)" class="stx7 futura-light stx9">04.00</text>
 					<text transform="matrix(1 0 0 1 134.4329 126.446)" class="stx7 futura-light stx9">04.00</text>
@@ -501,7 +501,7 @@
 						<text transform="matrix(0.9736 0 0 1 140.6011 66.7178)" class="stx3 futura-book stx5">17</text>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[43]" ng-click="nvtBeta.showPropertyData(23, '18', nvtBeta.inmovables[43].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[43]" ng-click="nvtBetaRent.showPropertyData(75, '18', nvtBetaRent.inmovables[43].idProperty)">
 					<polygon class="property nvt-sprite-1" points="229.8,1.4 229.8,129.2 173.2,129.3 173.2,1.3"/>
 					<text transform="matrix(1 0 0 1 190.198 9.7161)" class="stx7 futura-light stx9">04.00</text>
 					<text transform="matrix(1 0 0 1 190.2019 126.446)" class="stx7 futura-light stx9">04.00</text>
@@ -512,7 +512,7 @@
 						<text transform="matrix(0.9736 0 0 1 196.3696 66.7178)" class="stx3 futura-book stx5">18</text>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[44]" ng-click="nvtBeta.showPropertyData(23, '19', nvtBeta.inmovables[44].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[44]" ng-click="nvtBetaRent.showPropertyData(75, '19', nvtBetaRent.inmovables[44].idProperty)">
 					<polygon class="property nvt-sprite-2" points="286.3,1.4 286.2,128.9 229.8,129.2 229.8,1.4"/>
 					<text transform="matrix(1 0 0 1 246.7469 9.7161)" class="stx7 futura-light stx9">04.00</text>
 					<text transform="matrix(1 0 0 1 246.7469 126.446)" class="stx7 futura-light stx9">04.00</text>
@@ -523,7 +523,7 @@
 						<text transform="matrix(0.9736 0 0 1 252.9146 66.7178)" class="stx3 futura-book stx5">19</text>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[45]" ng-click="nvtBeta.showPropertyData(23, '20', nvtBeta.inmovables[45].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[45]" ng-click="nvtBetaRent.showPropertyData(75, '20', nvtBetaRent.inmovables[45].idProperty)">
 					<polygon class="property nvt-sprite-1" points="343.2,1.4 343.2,128.8 286.2,128.9 286.3,1.4"/>
 					<text transform="matrix(1 0 0 1 303.4358 9.7161)" class="stx7 futura-light stx9">04.00</text>
 					<text transform="matrix(1 0 0 1 303.4358 126.446)" class="stx7 futura-light stx9">04.00</text>
@@ -534,7 +534,7 @@
 						<text transform="matrix(0.9736 0 0 1 309.604 66.7178)" class="stx3 futura-book stx5">20</text>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[46]" ng-click="nvtBeta.showPropertyData(23, '21', nvtBeta.inmovables[46].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[46]" ng-click="nvtBetaRent.showPropertyData(75, '21', nvtBetaRent.inmovables[46].idProperty)">
 					<polygon class="property nvt-sprite-2" points="410.4,1.4 410.5,128.9 343.2,128.8 343.2,1.4"/>
 					<text transform="matrix(1 0 0 1 365.5799 9.7161)" class="stx7 futura-light stx9">04.75</text>
 					<text transform="matrix(1 0 0 1 365.5799 126.446)" class="stx7 futura-light stx9">04.75</text>
@@ -549,7 +549,7 @@
 						<polygon class="stx10" points="351.6,56.3 351.5,51.1 351.4,45.5 356.9,50.8"/>
 					</g>
 				</g>
-				<g ng-class="nvtBeta.inmovablesClassList[47]" ng-click="nvtBeta.showPropertyData(23, '22', nvtBeta.inmovables[47].idProperty)">
+				<g ng-class="nvtBetaRent.inmovablesClassList[47]" ng-click="nvtBetaRent.showPropertyData(75, '22', nvtBetaRent.inmovables[47].idProperty)">
 					<polygon class="property nvt-sprite-1" points="478.8,1.4 478.9,129.1 410.5,128.9 410.4,1.4"/>
 					<g>
 						<text transform="matrix(1 0 0 1 433.368 9.7161)" class="stx7 futura-light stx9">04.75</text>
@@ -601,7 +601,7 @@
 			<g class="beta__container">
 				
 				<g id="isla_a1">
-					<g ng-class="nvtBeta.inmovablesClassList[0]" ng-click="nvtBeta.showPropertyData(13, '32', nvtBeta.inmovables[0].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[0]" ng-click="nvtBetaRent.showPropertyData(74, '32', nvtBetaRent.inmovables[0].idProperty)">
 						<rect id="a1-l32" x="258.7" y="2.5" class="property nvt-sprite-1" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 279.0939 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 279.0939 182.635)" class="st1 futura-light st3">14.00</text>
@@ -613,7 +613,7 @@
 						<rect x="288.9" y="47" transform="matrix(0.7034 -0.7108 0.7108 0.7034 50.3496 224.0265)" class="st7" width="9.3" height="9.3"/>
 						<polygon class="st7" points="293.6,58.3 293.6,51.9 293.6,45.1 300.2,51.7"/>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[1]" ng-click="nvtBeta.showPropertyData(13, '33', nvtBeta.inmovables[1].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[1]" ng-click="nvtBetaRent.showPropertyData(74, '33', nvtBetaRent.inmovables[1].idProperty)">
 						<rect id="a1-l33" x="323.8" y="2.5" class="property nvt-sprite-2" width="64.9" height="183.3"/>
 						<text transform="matrix(1 0 0 1 344.2139 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 344.2139 182.635)" class="st1 futura-light st3">14.00</text>
@@ -622,7 +622,7 @@
 						<text transform="matrix(0.97 0 0 1 343.5839 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 353.0028 84.8451)" class="st4 futura-med st6">33</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[2]" ng-click="nvtBeta.showPropertyData(13, '34', nvtBeta.inmovables[2].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[2]" ng-click="nvtBetaRent.showPropertyData(74, '34', nvtBetaRent.inmovables[2].idProperty)">
 						<rect id="a1-l34" x="388.8" y="2.5" class="property nvt-sprite-1" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 409.1139 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 409.1139 182.635)" class="st1 futura-light st3">14.00</text>
@@ -631,7 +631,7 @@
 						<text transform="matrix(0.97 0 0 1 408.4843 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 417.9027 84.8451)" class="st4 futura-med st6">34</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[3]" ng-click="nvtBeta.showPropertyData(13, '35', nvtBeta.inmovables[3].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[3]" ng-click="nvtBetaRent.showPropertyData(74, '35', nvtBetaRent.inmovables[3].idProperty)">
 						<rect id="a1-l35" x="453.9" y="2.5" class="property nvt-sprite-2" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 475.5839 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 475.5839 182.635)" class="st1 futura-light st3">14.00</text>
@@ -640,7 +640,7 @@
 						<text transform="matrix(0.97 0 0 1 474.9442 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 484.3627 84.8451)" class="st4 futura-med st6">35</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[4]" ng-click="nvtBeta.showPropertyData(13, '36', nvtBeta.inmovables[4].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[4]" ng-click="nvtBetaRent.showPropertyData(74, '36', nvtBetaRent.inmovables[4].idProperty)">
 						<rect id="a1-l36" x="519" y="2.5" class="property nvt-sprite-1" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 540.0239 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 540.0239 182.635)" class="st1 futura-light st3">14.00</text>
@@ -649,7 +649,7 @@
 						<text transform="matrix(0.97 0 0 1 539.3939 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 548.8129 84.8451)" class="st4 futura-med st6">36</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[5]" ng-click="nvtBeta.showPropertyData(13, '37', nvtBeta.inmovables[5].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[5]" ng-click="nvtBetaRent.showPropertyData(74, '37', nvtBetaRent.inmovables[5].idProperty)">
 						<rect id="a1-l37" x="584.1" y="2.5" class="property nvt-sprite-2" width="64.9" height="183.3"/>
 						<text transform="matrix(1 0 0 1 605.5939 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 605.5939 182.635)" class="st1 futura-light st3">14.00</text>
@@ -658,7 +658,7 @@
 						<text transform="matrix(0.97 0 0 1 604.9642 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 614.3827 84.8451)" class="st4 futura-med st6">37</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[6]" ng-click="nvtBeta.showPropertyData(13, '38', nvtBeta.inmovables[6].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[6]" ng-click="nvtBetaRent.showPropertyData(74, '38', nvtBetaRent.inmovables[6].idProperty)">
 						<rect id="a1-l38" x="649" y="2.5" class="property nvt-sprite-1" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 670.2739 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 670.2739 182.635)" class="st1 futura-light st3">14.00</text>
@@ -667,7 +667,7 @@
 						<text transform="matrix(0.97 0 0 1 669.6342 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 679.0526 84.8451)" class="st4 futura-med st6">38</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[7]" ng-click="nvtBeta.showPropertyData(13, '39', nvtBeta.inmovables[7].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[7]" ng-click="nvtBetaRent.showPropertyData(74, '39', nvtBetaRent.inmovables[7].idProperty)">
 						<rect id="a1-l39" x="714.1" y="2.5" class="property nvt-sprite-2" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 735.8439 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 735.8439 182.635)" class="st1 futura-light st3">14.00</text>
@@ -676,7 +676,7 @@
 						<text transform="matrix(0.97 0 0 1 735.204 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 744.6229 84.8451)" class="st4 futura-med st6">39</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[8]" ng-click="nvtBeta.showPropertyData(13, '40', nvtBeta.inmovables[8].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[8]" ng-click="nvtBetaRent.showPropertyData(74, '40', nvtBetaRent.inmovables[8].idProperty)">
 						<rect id="a1-l40" x="779.2" y="2.5" class="property nvt-sprite-1" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 800.7339 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 800.7339 182.635)" class="st1 futura-light st3">14.00</text>
@@ -685,7 +685,7 @@
 						<text transform="matrix(0.97 0 0 1 800.1044 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 809.5223 84.8451)" class="st4 futura-med st6">40</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[9]" ng-click="nvtBeta.showPropertyData(13, '41', nvtBeta.inmovables[9].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[9]" ng-click="nvtBetaRent.showPropertyData(74, '41', nvtBetaRent.inmovables[9].idProperty)">
 						<rect id="a1-l41" x="844.3" y="2.5" class="property nvt-sprite-2" width="64.9" height="183.3"/>
 						<text transform="matrix(1 0 0 1 866.0839 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 866.0839 182.635)" class="st1 futura-light st3">14.00</text>
@@ -694,7 +694,7 @@
 						<text transform="matrix(0.97 0 0 1 865.454 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 874.8729 84.8451)" class="st4 futura-med st6">41</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[10]" ng-click="nvtBeta.showPropertyData(13, '42', nvtBeta.inmovables[10].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[10]" ng-click="nvtBetaRent.showPropertyData(74, '42', nvtBetaRent.inmovables[10].idProperty)">
 						<rect id="a1-l42" x="909.2" y="2.5" class="property nvt-sprite-1" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 931.4239 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 931.4239 182.635)" class="st1 futura-light st3">14.00</text>
@@ -703,7 +703,7 @@
 						<text transform="matrix(0.97 0 0 1 930.7938 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 940.2128 84.8451)" class="st4 futura-med st6">42</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[11]" ng-click="nvtBeta.showPropertyData(13, '43', nvtBeta.inmovables[11].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[11]" ng-click="nvtBetaRent.showPropertyData(74, '43', nvtBetaRent.inmovables[11].idProperty)">
 						<rect id="a1-l43" x="974.3" y="2.5" class="property nvt-sprite-2" width="64.9" height="183.3"/>
 						<text transform="matrix(1 0 0 1 996.3239 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 996.3239 182.635)" class="st1 futura-light st3">14.00</text>
@@ -712,7 +712,7 @@
 						<text transform="matrix(0.97 0 0 1 995.6942 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 1005.1132 84.8451)" class="st4 futura-med st6">43</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[12]" ng-click="nvtBeta.showPropertyData(13, '44', nvtBeta.inmovables[12].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[12]" ng-click="nvtBetaRent.showPropertyData(74, '44', nvtBetaRent.inmovables[12].idProperty)">
 						<rect id="a1-l44" x="1039.2" y="2.5" class="property nvt-sprite-1" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 1061.1838 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 1061.1838 182.635)" class="st1 futura-light st3">14.00</text>
@@ -721,7 +721,7 @@
 						<text transform="matrix(0.97 0 0 1 1060.5536 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 1069.9725 84.8451)" class="st4 futura-med st6">44</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[13]" ng-click="nvtBeta.showPropertyData(13, '45', nvtBeta.inmovables[13].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[13]" ng-click="nvtBetaRent.showPropertyData(74, '45', nvtBetaRent.inmovables[13].idProperty)">
 						<rect id="a1-l45" x="1104.3" y="2.5" class="property nvt-sprite-2" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 1126.5239 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 1126.5239 182.635)" class="st1 futura-light st3">14.00</text>
@@ -730,7 +730,7 @@
 						<text transform="matrix(0.97 0 0 1 1125.8944 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 1135.3134 84.8451)" class="st4 futura-med st6">45</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[14]" ng-click="nvtBeta.showPropertyData(13, '46', nvtBeta.inmovables[14].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[14]" ng-click="nvtBetaRent.showPropertyData(74, '46', nvtBetaRent.inmovables[14].idProperty)">
 						<rect id="a1-l46" x="1169.4" y="2.5" class="property nvt-sprite-1" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 1192.7739 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 1192.7739 182.635)" class="st1 futura-light st3">14.00</text>
@@ -739,7 +739,7 @@
 						<text transform="matrix(0.97 0 0 1 1192.1444 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 1201.5634 84.8451)" class="st4 futura-med st6">46</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[15]" ng-click="nvtBeta.showPropertyData(13, '47', nvtBeta.inmovables[15].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[15]" ng-click="nvtBetaRent.showPropertyData(74, '47', nvtBetaRent.inmovables[15].idProperty)">
 						<rect id="a1-l47" x="1234.5" y="2.5" class="property nvt-sprite-2" width="64.9" height="183.3"/>
 						<text transform="matrix(1 0 0 1 1256.5438 10.5149)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 1256.5438 182.635)" class="st1 futura-light st3">14.00</text>
@@ -748,7 +748,7 @@
 						<text transform="matrix(0.97 0 0 1 1255.9139 72.3153)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 1265.3329 84.8451)" class="st4 futura-med st6">47</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[16]" ng-click="nvtBeta.showPropertyData(13, '48', nvtBeta.inmovables[16].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[16]" ng-click="nvtBetaRent.showPropertyData(74, '48', nvtBetaRent.inmovables[16].idProperty)">
 						<polygon id="a1-l48" class="property nvt-sprite-1" points="1299.4,2.5 1364.7,2.5 1364.4,185.8 1299.4,185.8"/>
 						<text transform="matrix(1 0 0 1 1321.4739 10.5149)" class="st1 futura-light st3">14.60</text>
 						<text transform="matrix(1 0 0 1 1321.4739 182.635)" class="st1 futura-light st3">15.74</text>
@@ -764,7 +764,7 @@
 				</g>
 
 				<g id="isla_a2">
-					<g ng-class="nvtBeta.inmovablesClassList[17]" ng-click="nvtBeta.showPropertyData(13, '49', nvtBeta.inmovables[17].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[17]" ng-click="nvtBetaRent.showPropertyData(74, '49', nvtBetaRent.inmovables[17].idProperty)">
 						<polygon id="a2-l49" class="property nvt-sprite-2" points="1299.4,268.2 1364.2,268.2 1363.9,451.5 1299.4,451.5"/>
 						<text transform="matrix(1 0 0 1 1325.3739 276.8351)" class="st1 futura-light st3">16.21</text>
 						<text transform="matrix(1 0 0 1 1329.6339 448.9551)" class="st1 futura-light st3">17.34</text>
@@ -777,7 +777,7 @@
 						<rect x="1327.3" y="313.1" transform="matrix(0.7034 -0.7108 0.7108 0.7034 169.1923 1041.0447)" class="st7" width="9.3" height="9.3"/>
 						<polygon class="st7" points="1332,324.4 1332,318 1331.9,311.2 1338.6,317.8"/>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[18]" ng-click="nvtBeta.showPropertyData(13, '50', nvtBeta.inmovables[18].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[18]" ng-click="nvtBetaRent.showPropertyData(74, '50', nvtBetaRent.inmovables[18].idProperty)">
 						<rect id="a2-l50" x="1234.5" y="268.2" class="property nvt-sprite-1" width="64.9" height="183.3"/>
 						<text transform="matrix(1 0 0 1 1256.5438 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 1256.5438 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -786,7 +786,7 @@
 						<text transform="matrix(0.97 0 0 1 1255.9139 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 1265.3329 350.9852)" class="st4 futura-med st6">50</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[19]" ng-click="nvtBeta.showPropertyData(13, '51', nvtBeta.inmovables[19].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[19]" ng-click="nvtBetaRent.showPropertyData(74, '51', nvtBetaRent.inmovables[19].idProperty)">
 						<rect id="a2-l51" x="1169.4" y="268.2" class="property nvt-sprite-2" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 1191.6938 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 1191.6938 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -795,7 +795,7 @@
 						<text transform="matrix(0.97 0 0 1 1191.0536 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 1200.4725 350.9852)" class="st4 futura-med st6">51</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[20]" ng-click="nvtBeta.showPropertyData(13, '52', nvtBeta.inmovables[20].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[20]" ng-click="nvtBetaRent.showPropertyData(74, '52', nvtBetaRent.inmovables[20].idProperty)">
 						<rect id="a2-l52" x="1104.5" y="268.2" class="property nvt-sprite-1" width="64.9" height="183.3"/>
 						<text transform="matrix(1 0 0 1 1126.5239 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 1126.5239 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -804,7 +804,7 @@
 						<text transform="matrix(0.97 0 0 1 1125.8944 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 1135.3134 350.9852)" class="st4 futura-med st6">52</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[21]" ng-click="nvtBeta.showPropertyData(13, '53', nvtBeta.inmovables[21].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[21]" ng-click="nvtBetaRent.showPropertyData(74, '53', nvtBetaRent.inmovables[21].idProperty)">
 						<rect id="a2-l53" x="1039.4" y="268.2" class="property nvt-sprite-2" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 1063.2039 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 1063.2039 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -813,7 +813,7 @@
 						<text transform="matrix(0.97 0 0 1 1062.5741 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 1071.993 350.9852)" class="st4 futura-med st6">53</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[22]" ng-click="nvtBeta.showPropertyData(13, '54', nvtBeta.inmovables[22].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[22]" ng-click="nvtBetaRent.showPropertyData(74, '54', nvtBetaRent.inmovables[22].idProperty)">
 						<rect id="a2-l54" x="974.3" y="268.2" class="property nvt-sprite-1" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 998.1939 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 998.1939 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -822,7 +822,7 @@
 						<text transform="matrix(0.97 0 0 1 997.5643 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 1006.9833 350.9852)" class="st4 futura-med st6">54</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[23]" ng-click="nvtBeta.showPropertyData(13, '55', nvtBeta.inmovables[23].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[23]" ng-click="nvtBetaRent.showPropertyData(74, '55', nvtBetaRent.inmovables[23].idProperty)">
 						<rect id="a2-l55" x="909.2" y="268.2" class="property nvt-sprite-2" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 931.4239 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 931.4239 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -831,7 +831,7 @@
 						<text transform="matrix(0.97 0 0 1 930.7938 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 940.2128 350.9852)" class="st4 futura-med st6">55</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[24]" ng-click="nvtBeta.showPropertyData(13, '56', nvtBeta.inmovables[24].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[24]" ng-click="nvtBetaRent.showPropertyData(74, '56', nvtBetaRent.inmovables[24].idProperty)">
 						<rect id="a2-l56" x="844.3" y="268.2" class="property nvt-sprite-1" width="64.9" height="183.3"/>
 						<text transform="matrix(1 0 0 1 866.0839 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 866.0839 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -840,7 +840,7 @@
 						<text transform="matrix(0.97 0 0 1 865.454 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 874.8729 350.9852)" class="st4 futura-med st6">56</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[25]" ng-click="nvtBeta.showPropertyData(13, '57', nvtBeta.inmovables[25].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[25]" ng-click="nvtBetaRent.showPropertyData(74, '57', nvtBetaRent.inmovables[25].idProperty)">
 						<rect id="a2-l57" x="779.2" y="268.2" class="property nvt-sprite-2" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 802.7539 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 802.7539 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -849,7 +849,7 @@
 						<text transform="matrix(0.97 0 0 1 802.1239 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 811.5428 350.9852)" class="st4 futura-med st6">57</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[26]" ng-click="nvtBeta.showPropertyData(13, '58', nvtBeta.inmovables[26].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[26]" ng-click="nvtBetaRent.showPropertyData(74, '58', nvtBetaRent.inmovables[26].idProperty)">
 						<rect id="a2-l58" x="714.1" y="268.2" class="property nvt-sprite-1" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 737.7439 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 737.7439 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -858,7 +858,7 @@
 						<text transform="matrix(0.97 0 0 1 737.1141 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 746.5326 350.9852)" class="st4 futura-med st6">58</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[27]" ng-click="nvtBeta.showPropertyData(13, '59', nvtBeta.inmovables[27].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[27]" ng-click="nvtBetaRent.showPropertyData(74, '59', nvtBetaRent.inmovables[27].idProperty)">
 						<rect id="a2-l59" x="649" y="268.2" class="property nvt-sprite-2" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 672.2139 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 672.2139 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -867,7 +867,7 @@
 						<text transform="matrix(0.97 0 0 1 671.5839 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 681.0028 350.9852)" class="st4 futura-med st6">59</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[28]" ng-click="nvtBeta.showPropertyData(13, '60', nvtBeta.inmovables[28].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[28]" ng-click="nvtBetaRent.showPropertyData(74, '60', nvtBetaRent.inmovables[28].idProperty)">
 						<rect id="a2-l60" x="584.1" y="268.2" class="property nvt-sprite-1" width="64.9" height="183.3"/>
 						<text transform="matrix(1 0 0 1 607.8839 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 607.8839 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -876,7 +876,7 @@
 						<text transform="matrix(0.97 0 0 1 607.2543 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 616.6727 350.9852)" class="st4 futura-med st6">60</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[29]" ng-click="nvtBeta.showPropertyData(13, '61', nvtBeta.inmovables[29].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[29]" ng-click="nvtBetaRent.showPropertyData(74, '61', nvtBetaRent.inmovables[29].idProperty)">
 						<rect id="a2-l61" x="519" y="268.2" class="property nvt-sprite-2" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 542.8739 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 542.8739 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -885,7 +885,7 @@
 						<text transform="matrix(0.97 0 0 1 542.244 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 551.663 350.9852)" class="st4 futura-med st6">61</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[30]" ng-click="nvtBeta.showPropertyData(13, '62', nvtBeta.inmovables[30].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[30]" ng-click="nvtBetaRent.showPropertyData(74, '62', nvtBetaRent.inmovables[30].idProperty)">
 						<rect id="a2-l62" x="453.8" y="268.2" class="property nvt-sprite-1" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 478.8739 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 478.8739 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -894,7 +894,7 @@
 						<text transform="matrix(0.97 0 0 1 478.244 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 487.663 350.9852)" class="st4 futura-med st6">62</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[31]" ng-click="nvtBeta.showPropertyData(13, '63', nvtBeta.inmovables[31].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[31]" ng-click="nvtBetaRent.showPropertyData(74, '63', nvtBetaRent.inmovables[31].idProperty)">
 						<rect id="a2-l63" x="388.7" y="268.2" class="property nvt-sprite-2" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 412.5239 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 412.5239 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -903,7 +903,7 @@
 						<text transform="matrix(0.97 0 0 1 411.8842 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 421.3026 350.9852)" class="st4 futura-med st6">63</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[32]" ng-click="nvtBeta.showPropertyData(13, '64', nvtBeta.inmovables[32].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[32]" ng-click="nvtBetaRent.showPropertyData(74, '64', nvtBetaRent.inmovables[32].idProperty)">
 						<rect id="a2-l64" x="323.8" y="268.2" class="property nvt-sprite-1" width="64.9" height="183.3"/>
 						<text transform="matrix(1 0 0 1 346.3539 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 346.3539 448.9551)" class="st1 futura-light st3">14.00</text>
@@ -912,7 +912,7 @@
 						<text transform="matrix(0.97 0 0 1 345.7142 338.455)" class="st4 futura-med st6">NAVE </text>
 						<text transform="matrix(0.97 0 0 1 355.1327 350.9852)" class="st4 futura-med st6">64</text>
 					</g>
-					<g ng-class="nvtBeta.inmovablesClassList[33]" ng-click="nvtBeta.showPropertyData(13, '65', nvtBeta.inmovables[33].idProperty)">
+					<g ng-class="nvtBetaRent.inmovablesClassList[33]" ng-click="nvtBetaRent.showPropertyData(74, '65', nvtBetaRent.inmovables[33].idProperty)">
 						<rect id="a2-l65" x="258.7" y="268.2" class="property nvt-sprite-2" width="65.1" height="183.3"/>
 						<text transform="matrix(1 0 0 1 282.3539 276.8351)" class="st1 futura-light st3">14.00</text>
 						<text transform="matrix(1 0 0 1 282.3539 448.9551)" class="st1 futura-light st3">14.00</text>

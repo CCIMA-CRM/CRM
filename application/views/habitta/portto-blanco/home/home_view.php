@@ -455,17 +455,17 @@
 			<polyline class="st0" points="283.2,885.8 383.7,892.9 424.1,895.7 429.8,895.8 435.5,895.4 441.1,894.4 471.3,993 439,1009.2 
 				376.1,1001 265.1,986.7 283.2,885.8 			"/>
 		</g>
-		<g id="PARAMO_00000123418291772463522050000012722343796223027866_">
-			<polyline class="st0" points="250.2,764 248.4,814.3 264.2,814.9 271.3,840.2 266.4,868.8 218.8,865.5 216.9,863.8 214.7,862.5 
-				212.2,861.8 209.6,861.6 207.1,862 204.7,862.9 202.6,864.4 182.8,863 181,862.6 179.3,861.6 178,860.2 176.2,858.2 174.2,856.4 
-				171.9,855 172.1,851.8 145.2,849.9 148.5,760.2 250.2,764 			"/>
-		</g>
-		<g id="PARAMO_00000042712841532953313240000011126348391397909901_">
-			<polyline class="st0" points="290.1,870.5 294,765.6 422.4,770.3 504,773.3 503.3,759.2 505.2,758.7 519,755 532.8,753.2 
-				546.4,749.4 559.8,745.8 610.7,747.6 609.5,779.2 594.1,783.4 589,785 584.2,787.1 579.6,789.7 515.4,831.3 508.3,820.4 
-				458.9,852.4 466,863.4 451.2,873 444.1,862 440.9,864 437.4,865.5 433.7,866.5 429.9,867 426.1,867 418.8,866.5 418.8,866.5 
-				374,863.3 373.5,876.4 290.1,870.5 			"/>
-		</g>
+			<g id="PARAMO_00000123418291772463522050000012722343796223027866_">
+				<polyline class="st0" points="250.2,764 248.4,814.3 264.2,814.9 271.3,840.2 266.4,868.8 218.8,865.5 216.9,863.8 214.7,862.5 
+					212.2,861.8 209.6,861.6 207.1,862 204.7,862.9 202.6,864.4 182.8,863 181,862.6 179.3,861.6 178,860.2 176.2,858.2 174.2,856.4 
+					171.9,855 172.1,851.8 145.2,849.9 148.5,760.2 250.2,764 			"/>
+			</g>
+			<g id="PARAMO_00000042712841532953313240000011126348391397909901_">
+				<polyline class="st0" points="290.1,870.5 294,765.6 422.4,770.3 504,773.3 503.3,759.2 505.2,758.7 519,755 532.8,753.2 
+					546.4,749.4 559.8,745.8 610.7,747.6 609.5,779.2 594.1,783.4 589,785 584.2,787.1 579.6,789.7 515.4,831.3 508.3,820.4 
+					458.9,852.4 466,863.4 451.2,873 444.1,862 440.9,864 437.4,865.5 433.7,866.5 429.9,867 426.1,867 418.8,866.5 418.8,866.5 
+					374,863.3 373.5,876.4 290.1,870.5 			"/>
+			</g>
 		<g id="DESIERTO_00000123428065595994006980000007670881953337113231_">
 			<polyline class="st1" points="458.9,886.7 486.6,868.8 550.3,827.5 588.3,802.9 591.3,801.1 594.6,799.7 598,798.6 630.1,790.1 
 				634.9,788.8 635.8,788.5 688.4,774.5 690.1,777.1 691.9,779.6 695.1,783.6 698.6,787.2 702.4,790.4 706.6,793.1 711.2,795.2 
@@ -479,10 +479,12 @@
 				924.9,745.8 939.1,757.9 952.8,770.4 966.2,783.4 979.1,796.8 991.5,810.7 1003.5,825 887.4,862.2 862.6,868.9 753.1,898.5 
 				725.9,797.8 			"/>
 		</g>
-		<g id="PARAMO_00000129173567610633965310000015620447103802381206_">
-			<polyline class="st0" points="616,590 660.5,686.3 699.8,697.8 698.2,700.3 696.2,703.6 694.6,707 693.9,708.8 646.8,694.9 
-				639.6,679.3 502.4,739.2 496.8,623 605.8,572.4 616,590 			"/>
-		</g>
+		<a href="#!/Portto_Blanco-Paramo_3">
+			<g id="PARAMO_00000129173567610633965310000015620447103802381206_">
+				<polyline class="st0" points="616,590 660.5,686.3 699.8,697.8 698.2,700.3 696.2,703.6 694.6,707 693.9,708.8 646.8,694.9 
+					639.6,679.3 502.4,739.2 496.8,623 605.8,572.4 616,590 			"/>
+			</g>
+		</a>
 		<g id="TAIGA_00000075883804961250368350000013267931447755192249_">
 			<polyline class="st1" points="895.6,671.6 913.9,666.6 942.6,659.9 952.9,657.5 955.4,657 963.4,655.4 971.3,653.6 971.8,653.7 
 				982,654.6 994.9,653.4 1006.1,651.8 1006.1,651.8 1007.8,651.5 1018.8,648.4 1026.9,645.6 1032.3,644.1 1033.7,644.3 
@@ -1092,45 +1094,45 @@
 		</g>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 1136.5977 547.8555)" class="st8 st9 st10">BOSQUE 1</text>
-		<text transform="matrix(1 0 0 1 1228.9268 547.8555)" class="st8 st9 st10">BOSQUE 2</text>
-		<text transform="matrix(1 0 0 1 1202.501 453.5854)" class="st8 st9 st10">BOSQUE 3</text>
-		<text transform="matrix(1 0 0 1 1283.2949 228.1065)" class="st8 st9 st10">BOSQUE 4</text>
-		<text transform="matrix(1 0 0 1 467.918 925.5161)" class="st8 st9 st10">DESIERTO 1</text>
-		<text transform="matrix(1 0 0 1 522.6729 873.3374)" class="st8 st9 st10">DESIERTO 2</text>
-		<text transform="matrix(1 0 0 1 589.3374 838.855)" class="st8 st9 st10">DESIERTO 3</text>
-		<text transform="matrix(1 0 0 1 668.8525 811.1216)" class="st8 st9 st10">DESIERTO 4</text>
-		<text transform="matrix(1 0 0 1 197.5845 893.729)" class="st8 st9 st10">ESTEPA 1</text>
-		<text transform="matrix(1 0 0 1 333.2656 910.0747)" class="st8 st9 st10">ESTEPA 2</text>
-		<text transform="matrix(1 0 0 1 407.0942 969.188)" class="st8 st9 st10">ESTEPA 3</text>
-		<text transform="matrix(1 0 0 1 893.4648 763.1187)" class="st8 st9 st10">LAGO 2</text>
-		<text transform="matrix(1 0 0 1 789.3623 860.9146)" class="st8 st9 st10">LAGO 1</text>
-		<text transform="matrix(1 0 0 1 1042.3193 590.5479)" class="st8 st9 st10">MANGLAR 1</text>
-		<text transform="matrix(1 0 0 1 901.1387 585.2563)" class="st8 st9 st10">MANGLAR 2</text>
-		<text transform="matrix(1 0 0 1 368.0356 829.645)" class="st8 st9 st10">PÁRAMO 1</text>
-		<text transform="matrix(1 0 0 1 498.1104 801.4282)" class="st8 st9 st10">PÁRAMO 2</text>
-		<text transform="matrix(1 0 0 1 553.0469 653.6011)" class="st8 st9 st10">PÁRAMO 3</text>
+		<a href="#!/Portto_Blanco-Bosque_1"><text transform="matrix(1 0 0 1 1136.5977 547.8555)" class="st8 st9 st10">BOSQUE 1</text></a>
+		<a href="#!/Portto_Blanco-Bosque_2"><text transform="matrix(1 0 0 1 1228.9268 547.8555)" class="st8 st9 st10">BOSQUE 2</text></a>
+		<a href="#!/Portto_Blanco-Bosque_3"><text transform="matrix(1 0 0 1 1202.501 453.5854)" class="st8 st9 st10">BOSQUE 3</text></a>
+		<a href="#!/Portto_Blanco-Bosque_4"><text transform="matrix(1 0 0 1 1283.2949 228.1065)" class="st8 st9 st10">BOSQUE 4</text></a>
+		<a href="#!/Portto_Blanco-Desierto_Uno"><text transform="matrix(1 0 0 1 467.918 925.5161)" class="st8 st9 st10">DESIERTO 1</text></a>
+		<a href="#!/Portto_Blanco-Desierto_Dos"><text transform="matrix(1 0 0 1 522.6729 873.3374)" class="st8 st9 st10">DESIERTO 2</text></a>
+		<a href="#!/Portto_Blanco-Desierto_Tres"><text transform="matrix(1 0 0 1 589.3374 838.855)" class="st8 st9 st10">DESIERTO 3</text></a>
+		<a href="#!/Portto_Blanco-Desierto_Cuatro"><text transform="matrix(1 0 0 1 668.8525 811.1216)" class="st8 st9 st10">DESIERTO 4</text></a>
+		<a href="#!/Portto_Blanco-estepa"><text transform="matrix(1 0 0 1 197.5845 893.729)" class="st8 st9 st10">ESTEPA 1</text></a>
+		<a href="#!/Portto_Blanco-estepa"><text transform="matrix(1 0 0 1 333.2656 910.0747)" class="st8 st9 st10">ESTEPA 2</text></a>
+		<a href="#!/Portto_Blanco-estepa"><text transform="matrix(1 0 0 1 407.0942 969.188)" class="st8 st9 st10">ESTEPA 3</text></a>
+		<a href="#!/Portto_Blanco-Lago_2"><text transform="matrix(1 0 0 1 893.4648 763.1187)" class="st8 st9 st10">LAGO 2</text></a>
+		<a href="#!/Portto_Blanco-Lago_1"><text transform="matrix(1 0 0 1 789.3623 860.9146)" class="st8 st9 st10">LAGO 1</text></a>
+		<a href="#!/Portto_Blanco-Manglar_1"><text transform="matrix(1 0 0 1 1042.3193 590.5479)" class="st8 st9 st10">MANGLAR 1</text></a>
+		<a href="#!/Portto_Blanco-Manglar_2"><text transform="matrix(1 0 0 1 901.1387 585.2563)" class="st8 st9 st10">MANGLAR 2</text></a>
+		<a href="#!/Portto_Blanco-Paramo_1"><text transform="matrix(1 0 0 1 368.0356 829.645)" class="st8 st9 st10">PÁRAMO 1</text></a>
+		<a href="#!/Portto_Blanco-Paramo_2"><text transform="matrix(1 0 0 1 498.1104 801.4282)" class="st8 st9 st10">PÁRAMO 2</text></a>
+		<a href="#!/Portto_Blanco-Paramo_3"><text transform="matrix(1 0 0 1 553.0469 653.6011)" class="st8 st9 st10">PÁRAMO 3</text></a>
 		<g>
-			<text transform="matrix(1 0 0 1 180.2627 931.2896)" class="st8 st11 st12">ESTEPA</text>
-			<text transform="matrix(1 0 0 1 321.8779 944.7046)" class="st8 st11 st12">ESTEPA</text>
-			<text transform="matrix(1 0 0 1 159.8252 814.5425)" class="st8 st11 st12">PÁRAMO</text>
-			<text transform="matrix(1 0 0 1 338.1445 817.1021)" class="st8 st11 st12">PÁRAMO</text>
-			<text transform="matrix(1 0 0 1 547.3965 898.4995)" class="st8 st11 st12">DESIERTO</text>
-			<text transform="matrix(1 0 0 1 813.9863 811.061)" class="st8 st11 st12">LAGO</text>
-			<text transform="matrix(1 0 0 1 549.8022 681.5103)" class="st8 st11 st12">PÁRAMO</text>
-			<text transform="matrix(1 0 0 1 1035.2256 729.2954)" class="st8 st11 st12">TAIGA</text>
-			<text transform="matrix(1 0 0 1 1198.667 318.4517)" class="st8 st11 st12">SABANA</text>
-			<text transform="matrix(1 0 0 1 1265.9688 171.7095)" class="st8 st11 st12">BOSQUE  </text>
-			<text transform="matrix(1 0 0 1 955.292 575.4917)" class="st8 st11 st12">MANGLAR</text>
-			<text transform="matrix(1 0 0 1 1042.8154 281.3843)" class="st8 st11 st12">TUNDRA</text>
-			<text transform="matrix(1 0 0 1 988.5127 402.8872)" class="st8 st11 st12">SELVA</text>
-			<text transform="matrix(1 0 0 1 1173.2188 509.7935)" class="st8 st11 st12">BOSQUE</text>
-			<text transform="matrix(1 0 0 1 720.5605 566.1753)" class="st8 st11 st12">ARRECIFE</text>
+			<a href="#!/Portto_Blanco-estepa"><text transform="matrix(1 0 0 1 180.2627 931.2896)" class="st8 st11 st12">ESTEPA</text></a>
+			<a href="#!/Portto_Blanco-estepa"><text transform="matrix(1 0 0 1 321.8779 944.7046)" class="st8 st11 st12">ESTEPA</text></a>
+			<a href="#!/Portto_Blanco-Paramo"><text transform="matrix(1 0 0 1 159.8252 814.5425)" class="st8 st11 st12">PÁRAMO</text></a>
+			<a href="#!/Portto_Blanco-Paramo"><text transform="matrix(1 0 0 1 338.1445 817.1021)" class="st8 st11 st12">PÁRAMO</text></a>
+			<a href="#!/Portto_Blanco-Desierto"><text transform="matrix(1 0 0 1 547.3965 898.4995)" class="st8 st11 st12">DESIERTO</text></a>
+			<a href="#!/Portto_Blanco-Lago"><text transform="matrix(1 0 0 1 813.9863 811.061)" class="st8 st11 st12">LAGO</text></a>
+			<a href="#!/Portto_Blanco-Paramo"><text transform="matrix(1 0 0 1 549.8022 681.5103)" class="st8 st11 st12">PÁRAMO</text></a>
+			<a href="#!/Portto_Blanco-Taiga"><text transform="matrix(1 0 0 1 1035.2256 729.2954)" class="st8 st11 st12">TAIGA</text></a>
+			<a href="#!/Portto_Blanco"><text transform="matrix(1 0 0 1 1198.667 318.4517)" class="st8 st11 st12">SABANA</text></a>
+			<a href="#!/Portto_Blanco-Bosque"><text transform="matrix(1 0 0 1 1265.9688 171.7095)" class="st8 st11 st12">BOSQUE  </text></a>
+			<a href="#!/Portto_Blanco-Manglar"><text transform="matrix(1 0 0 1 955.292 575.4917)" class="st8 st11 st12">MANGLAR</text></a>
+			<a href="#!/Portto_Blanco-Tundra"><text transform="matrix(1 0 0 1 1042.8154 281.3843)" class="st8 st11 st12">TUNDRA</text></a>
+			<a href="#!/Portto_Blanco-Selva"><text transform="matrix(1 0 0 1 988.5127 402.8872)" class="st8 st11 st12">SELVA</text></a>
+			<a href="#!/Portto_Blanco-Bosque"><text transform="matrix(1 0 0 1 1173.2188 509.7935)" class="st8 st11 st12">BOSQUE</text></a>
+			<a href="#!/Portto_Blanco"><text transform="matrix(1 0 0 1 720.5605 566.1753)" class="st8 st11 st12">ARRECIFE</text></a>
 		</g>
-		<text transform="matrix(1 0 0 1 949.416 425.7842)" class="st8 st9 st10"> SELVA 1</text>
-		<text transform="matrix(1 0 0 1 940.2871 282.8574)" class="st8 st9 st10"> SELVA 2</text>
-		<text transform="matrix(1 0 0 1 1018.7734 169.9644)" class="st8 st9 st10"> SELVA 4</text>
-		<text transform="matrix(1 0 0 1 1091.8828 380.7515)" class="st8 st9 st10"> SELVA 3</text>
+		<a href="#!/Portto_Blanco-Selva_1"><text transform="matrix(1 0 0 1 949.416 425.7842)" class="st8 st9 st10"> SELVA 1</text></a>
+		<a href="#!/Portto_Blanco-Selva_2"><text transform="matrix(1 0 0 1 940.2871 282.8574)" class="st8 st9 st10"> SELVA 2</text></a>
+		<a href="#!/Portto_Blanco-Selva_4"><text transform="matrix(1 0 0 1 1018.7734 169.9644)" class="st8 st9 st10"> SELVA 4</text></a>
+		<a href="#!/Portto_Blanco-Selva_3"><text transform="matrix(1 0 0 1 1091.8828 380.7515)" class="st8 st9 st10"> SELVA 3</text></a>
 	</g>
 </g>
 </svg>

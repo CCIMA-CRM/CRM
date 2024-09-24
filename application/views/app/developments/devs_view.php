@@ -335,6 +335,11 @@
 													Tundra 1
 												</md-button>
 											</md-menu-item>
+											<md-menu-item>
+												<md-button href="#!/inventary/layouts/tundra%202">
+													Tundra 2
+												</md-button>
+											</md-menu-item>
 											<md-menu-divider></md-menu-divider>
 											<md-menu-item>
 												<span class="gray-txt">

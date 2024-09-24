@@ -596,6 +596,11 @@ app.config(function($routeProvider) {
 		controller: 'PBTundraQuoteCtrl',
 		controllerAs: 'tundra'
 	})
+	.when('/Portto_Blanco-Tundra_2', {
+		templateUrl: 'application/views/habitta/portto-blanco/app/devs/tundra/condos/tundra_2_quote.php',
+		controller: 'PBTundraDosQuoteCtrl',
+		controllerAs: 'tundraDos'
+	})
 
 
     /***** LOMAS*****/
@@ -832,6 +837,11 @@ app.config(function($routeProvider) {
 		controller: 'NvtBetaQuoteCtrl',
 		controllerAs: 'nvtBeta'
 	})
+	.when('/Navetec-Beta_Renta_Business_Park', {
+		templateUrl: 'application/views/navetec/quote/beta_quote_renta_view.php',
+		controller: 'NvtBetaRentaQuoteCtrl',
+		controllerAs: 'nvtBetaRent'
+	})
 	
 	/***** Gamma *****/
 
@@ -848,6 +858,11 @@ app.config(function($routeProvider) {
 	.when('/Navetec-Gamma_Business_Park', {
 		templateUrl: 'application/views/navetec/quote/gamma_quote_view.php',
 		controller: 'NvtGammaQuoteCtrl',
+		controllerAs: 'nvtGamma'
+	})
+	.when('/Navetec-Gamma_Renta_Business_Park', {
+		templateUrl: 'application/views/navetec/quote/gamma_renta_quote_view.php',
+		controller: 'NvtGammaRentaQuoteCtrl',
 		controllerAs: 'nvtGamma'
 	})
 
@@ -871,6 +886,11 @@ app.config(function($routeProvider) {
 	
 	.when('/Navetec-Santa_Rosa_Business_Park', {
 	templateUrl: 'application/views/navetec/quote/santa_rosa_nuevo_quote_view.php',
+	controller: 'NvtSantaQuoteCtrl',
+	controllerAs: 'nvtSanta'
+	})
+	.when('/Navetec-Santa_Rosa_Renta_Business_Park', {
+	templateUrl: 'application/views/navetec/quote/santa_rosa_nuevo_renta_quote_view.php',
 	controller: 'NvtSantaQuoteCtrl',
 	controllerAs: 'nvtSanta'
 	})
@@ -6892,6 +6912,287 @@ app.controller('NvtSantaCtrl', function($scope, $location, $http, Session, Inmov
 	init();
 	
 });
+app.controller('NvtSantaRentaCtrl', function($scope, $location, $http, Session, Inmovables, Quote, Leads) {
+
+	Session.permissions().then(function(response) {
+		if (response.isLogged < 1) {
+			$location.path('/login');
+		}
+		if (response.idProfile != 1 && response.isLogged != 3) {
+			$location.path('/dashboard');
+		}
+	});
+
+	var nvtSanta = this;
+
+	let inmovables = Inmovables;
+	let quoteResult = {};
+	let selectedPropertyID = 0;
+	let selectedUserID = 0;
+	let selectedLeadID = 0;
+	let selectedStatus = 0;
+	let selectedPropertyStatusID = 0;
+	
+	nvtSanta.inmovablesData = [];
+	nvtSanta.inmovablesClassList = [];
+	nvtSanta.activeUsers = [];
+	nvtSanta.deletedUsers = [];
+	nvtSanta.leadsResult = [];
+	nvtSanta.propertyData = [];
+
+	nvtSanta.advisersDialogDisplay = 'hide';
+	nvtSanta.dialogStatusDisplay = 'hide';
+	nvtSanta.nvtSantaListDialogDisplay = 'hide';
+	nvtSanta.optionsDialogDisplay = 'hide';
+
+	let prepareInmovablesData = function() {
+		angular.forEach(nvtSanta.inmovablesData.inmovables, function(property, propertyKey) {
+			angular.forEach(nvtSanta.inmovablesData.propertyTypes, function(type, typeKey) {
+				if (property.idPropertyType == type.idPropertyType) {
+					nvtSanta.inmovablesData.inmovables[propertyKey].type = type.type;
+					nvtSanta.inmovablesData.inmovables[propertyKey].cost_m2 = type.cost_m2;
+				}
+			});
+			angular.forEach(nvtSanta.inmovablesData.condos, function(condominium, condominiumKey) {
+				if (property.idCondominium == condominium.idCondominium) {
+					nvtSanta.inmovablesData.inmovables[propertyKey].condominium = condominium.condominium;
+				}
+			});
+		});
+	}
+
+	nvtSanta.setLeadProperty = function(property) {
+		nvtSanta.propertyData = property;
+		selectedPropertyStatusID = nvtSanta.propertyData.idPropertyStatus;
+		selectedPropertyID = nvtSanta.propertyData.idProperty;
+		if (selectedPropertyStatusID > 1) {
+			nvtSanta.closeAdvisersDialog();
+			nvtSanta.openDialogStatus();
+		} else {
+			nvtSanta.openAdvisersDialog();
+		}
+	}
+
+	nvtSanta.selectUser = function(idUser, index) {
+		selectedUserIndex = index;
+		nvtSanta.idUser = idUser;
+		nvtSanta.collapse(index);
+	}
+
+	var getUsers = function() {
+		$http({
+			method: 'POST',
+				url: 'application/controllers/get_active_users_controller.php',
+				headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+		}).then(function(response) {
+			nvtSanta.usersResult = response.data;
+			if (nvtSanta.usersResult.status >	 0) {
+				nvtSanta.getUsersMsgResult = 'No se encontró ningún usuario';
+				nvtSanta.usersResult = {};
+			} else {
+				nvtSanta.getUsersMsgResult = '';
+				angular.forEach(nvtSanta.usersResult.users, function(user, key) {
+					user.leads = [];
+					angular.forEach(nvtSanta.leadsResult, function(lead, key) {
+						if (lead[5] == user.idUser) {
+							user.leads.push({idLead: lead[0], name: lead[1], last_name: lead[2], idUser: lead[5]});
+						}
+					});
+					user.collapsableBodyClass = 'saufth-collapsable-hide';
+					user.collapsableHeaderClass = '';
+					nvtSanta.activeUsers.push(user);
+				});
+			}
+			console.log('HTTP_GET_ACTIVE_USERS_OK');
+		}, function(response) {
+			console.log('HTTP_GET_ACTIVE_USERS_ERR');
+		});
+	}
+
+	var getLeads = function() {
+		Leads.selectActiveLeads().then(function(response) {
+			console.log('HTTP_GET_LEADS_OK');
+			nvtSanta.leadsResult = response.result;
+			getUsers();
+		}, function(response) {
+			console.log('HTTP_GET_LEADS_ERR');
+		});
+	}
+
+	var insertLeadPropertyStatus = function() {
+		$http({
+			method: 'POST',
+			url: 'application/controllers/insert_lead_property_status_controller.php',
+			data: {
+				idUser: selectedUserID,
+				idLead: selectedLeadID,
+				status: selectedStatus,
+				idProperty: selectedPropertyID,
+				zoho_id: nvtSanta.propertyData.zoho_id
+			},
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+		}).then(function(response) {
+			inmovables.getInmovablesData(15, 26).then(function(response) {
+				nvtSanta.inmovablesData = response;
+				nvtSanta.inmovablesClassList = inmovables.generateInmovablesClassListInventary(nvtSanta.inmovablesData.inmovables);
+				prepareInmovablesData();
+				nvtSanta.closeDialogStatus();
+				nvtSanta.closeAdvisersDialog();
+			});
+			console.log('HTTP_INSERT_LEAD_PROPERTY_STATUS_OK');
+		}, function(response) {
+			console.log('HTTP_INSERT_LEAD_PROPERTY_STATUS_ERR');
+		});
+	}
+
+	var deleteLeadPropertyStatus = function() {
+		$http({
+			method: 'POST',
+			url: 'application/controllers/delete_lead_property_status_controller.php',
+			data: {
+				idUser: selectedUserID,
+				idLead: selectedLeadID,
+				status: selectedStatus,
+				idProperty: selectedPropertyID
+			},
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+		}).then(function(response) {
+			inmovables.getInmovablesData(15, 26).then(function(response) {
+				nvtSanta.inmovablesData = response;
+				nvtSanta.inmovablesClassList = inmovables.generateInmovablesClassListInventary(nvtSanta.inmovablesData.inmovables);
+				prepareInmovablesData();
+				nvtSanta.closeDialogStatus();
+				nvtSanta.closeAdvisersDialog();
+			});
+			console.log('HTTP_DELETE_LEAD_PROPERTY_STATUS_OK');
+		}, function(response) {
+			console.log('HTTP_DELETE_LEAD_PROPERTY_STATUS_ERR');
+		});
+	}
+
+	var updatePropertyStatus = function() {
+		$http({
+			method: 'POST',
+			url: 'application/controllers/update_property_status_controller.php',
+			data: {
+				status: selectedStatus,
+				idProperty: selectedPropertyID
+			},
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+		}).then(function(response) {
+			inmovables.getInmovablesData(15, 26).then(function(response) {
+				nvtSanta.inmovablesData = response;
+				nvtSanta.inmovablesClassList = inmovables.generateInmovablesClassListInventary(nvtSanta.inmovablesData.inmovables);
+				prepareInmovablesData();
+				nvtSanta.closeDialogStatus();
+			});
+			console.log('HTTP_UPDATE_PROPERTY_STATUS_OK');
+		}, function(response) {
+			console.log('HTTP_UPDATE_PROPERTY_STATUS_ERR');
+		});
+	}
+
+	nvtSanta.selectLeadPropertyStatus = function(idUser, idLead) {
+		selectedUserID = idUser;
+		selectedLeadID = idLead;
+		nvtSanta.openDialogStatus();
+	}
+
+	nvtSanta.setStatus = function(status) {
+		selectedStatus = status;
+		if (selectedPropertyStatusID > 1) {
+			if (selectedStatus > 1) {
+				updatePropertyStatus();
+			} else {
+				deleteLeadPropertyStatus();
+			}
+		} else {
+			insertLeadPropertyStatus();
+		}
+	}
+
+	nvtSanta.showInmovablesList = function() {
+		nvtSanta.openNvtSantaListDialog();
+	}
+
+	nvtSanta.openAdvisersDialog = function() {
+		nvtSanta.advisersDialogDisplay = '';
+	}
+
+	nvtSanta.closeAdvisersDialog = function() {
+		nvtSanta.advisersDialogDisplay = 'hide';
+	}
+
+	nvtSanta.openDialogStatus = function() {
+		nvtSanta.dialogStatusDisplay = '';
+	}
+
+	nvtSanta.closeDialogStatus = function() {
+		nvtSanta.dialogStatusDisplay = 'hide';
+	}
+
+	nvtSanta.openNvtSantaListDialog = function() {
+		nvtSanta.nvtSantaListDialogDisplay = '';
+	}
+
+	nvtSanta.closeNvtSantaListDialog = function() {
+		nvtSanta.nvtSantaListDialogDisplay = 'hide';
+	}
+
+	nvtSanta.openOptionsDialogDisplay = function() {
+		nvtSanta.optionsDialogDisplay = '';
+	}
+
+	nvtSanta.closeOptionsDialogDisplay = function() {
+		nvtSanta.optionsDialogDisplay = 'hide';
+	}
+
+	let collapsed = -1;
+
+	nvtSanta.collapse = function(index) {
+		if (collapsed < 0) {
+			nvtSanta.activeUsers[index].collapsableBodyClass = 'saufth-collapsable-show';
+			nvtSanta.activeUsers[index].collapsableHeaderClass = 'saufth-collapsable-header-bg';
+			collapsed = index;
+		} else if (collapsed == index) {
+			nvtSanta.activeUsers[index].collapsableBodyClass = 'saufth-collapsable-hide';
+			nvtSanta.activeUsers[index].collapsableHeaderClass = '';
+			collapsed = -1;
+		} else if (collapsed >= 0) {
+			if (index != Object.keys(nvtSanta.activeUsers).length-1) {
+				nvtSanta.activeUsers[collapsed].collapsableBodyClass = 'saufth-collapsable-hide';
+				nvtSanta.activeUsers[collapsed].collapsableHeaderClass = '';
+				nvtSanta.activeUsers[index].collapsableBodyClass = 'saufth-collapsable-show';
+				nvtSanta.activeUsers[index].collapsableHeaderClass = 'saufth-collapsable-header-bg';
+				collapsed = index;
+			} else {
+				if (index != collapsed) {
+					nvtSanta.activeUsers[collapsed].collapsableBodyClass = 'saufth-collapsable-hide';
+					nvtSanta.activeUsers[collapsed].collapsableHeaderClass = '';
+					nvtSanta.activeUsers[index].collapsableBodyClass = 'saufth-collapsable-show-last';
+					nvtSanta.activeUsers[index].collapsableHeaderClass = 'saufth-collapsable-header-bg';
+					collapsed = index;
+				} else {
+					nvtSanta.activeUsers[index].collapsableBodyClass = 'saufth-collapsable-hide';
+					nvtSanta.activeUsers[index].collapsableHeaderClass = '';
+					collapsed = -1;
+				}
+			}
+		}
+	}
+	
+	var init = function() {
+		inmovables.getInmovablesData(15, 26).then(function(response) {
+			nvtSanta.inmovablesData = response;
+			nvtSanta.inmovablesClassList = inmovables.generateInmovablesClassListInventary(nvtSantaRosa.inmovablesData.inmovables);
+			prepareInmovablesData();
+			getLeads();
+		});
+	}
+
+	init();
+	
+});
 
 app.controller('NvtAeropuertoCtrl', function($scope, $location, $http, Session, Inmovables, Leads) {
 
@@ -8133,6 +8434,117 @@ app.controller('NvtBetaQuoteCtrl', function($scope, Inmovables, Developments, St
 	init();
 
 });
+app.controller('NvtBetaRentaQuoteCtrl', function($scope, Inmovables, Developments, Status) {
+
+	var nvtBetaRent = this;
+	var inmovables = Inmovables;
+	
+	var inmovablesData = [];
+	nvtBetaRent.inmovablesClassList = [];
+	nvtBetaRent.propertyData = [];
+
+	nvtBetaRent.dialogDisplay = 'hide';
+
+	var discountPlan1 = .25;
+	var discountPlan2 = .20;
+
+	nvtBetaRent.showPropertyData = function(idCondominium, number, idProperty) {
+		
+		Developments.selectPropertyById(idProperty).then(function(response) {
+
+			if (Status.checkHttpStatusCode(response.status)) {
+
+				nvtBetaRent.property = response.property;
+				nvtBetaRent.property.sample = {};
+
+				nvtBetaRent.property.sample.m2 = (nvtBetaRent.property.cost.increase.m2 > 0) ? nvtBetaRent.property.cost.increase.m2 : nvtBetaRent.property.cost.m2;
+				nvtBetaRent.property.sample.property = nvtBetaRent.property.sample.m2 * nvtBetaRent.property.area;
+
+				nvtBetaRent.property.sample.discount1 = nvtBetaRent.property.sample.property - (nvtBetaRent.property.sample.property * discountPlan1);
+				nvtBetaRent.property.sample.discount2 = nvtBetaRent.property.sample.property - (nvtBetaRent.property.sample.property * discountPlan2);
+
+				angular.forEach(inmovablesData.inmovables, function(row, key) {
+					if (row.number == number && row.idCondominium == idCondominium) {
+						nvtBetaRent.propertyData.condominium = inmovablesData.condos[0].condominium;
+						if (row.property_class == 1) {
+							nvtBetaRent.propertyData.propertyClass = 'Nave industrial';
+							nvtBetaRent.costToBlock = '$30,000 MXN';
+						} else if (row.property_class == 2) {
+							nvtBetaRent.propertyData.propertyClass = 'Lote industrial';
+							nvtBetaRent.costToBlock = '$10,000 MXN';
+						} else {
+							nvtBetaRent.propertyData.propertyClass = 'Local Comercial';
+							nvtBetaRent.costToBlock = '$10,000 MXN';
+						}
+		
+						for (let indexType = 0; indexType < inmovablesData.propertyTypes.length; indexType++) {
+		
+							if (inmovablesData.inmovables[key].idPropertyType == inmovablesData.propertyTypes[indexType].idPropertyType) {
+		
+								nvtBetaRent.propertyData.type = inmovablesData.propertyTypes[indexType].type;
+								nvtBetaRent.propertyData.cost_m2 = Number.parseFloat(inmovablesData.propertyTypes[indexType].cost_m2.toFixed(2));
+		
+								break;
+		
+							}
+		
+						}
+		
+						if (row.cost_m2_increase != null) {
+							nvtBetaRent.propertyData.cost_m2 = nvtBetaRent.property.cost.increase.m2;
+							nvtBetaRent.propertyData.cost_m2 = Number.parseFloat(nvtBetaRent.propertyData.cost_m2.toFixed(2));
+						}
+		
+						nvtBetaRent.propertyData.number = row.number;
+						nvtBetaRent.propertyData.area = row.area;
+						var total = nvtBetaRent.propertyData.cost_m2 * nvtBetaRent.propertyData.area;
+						nvtBetaRent.propertyData.total = total.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						var totalDiscountPlan1 = total - (total * discountPlan1);
+						nvtBetaRent.propertyData.discountPlan1 = discountPlan1 * 100;
+						nvtBetaRent.propertyData.totalPlan1 = totalDiscountPlan1.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						var totalDiscountPlan2 = total - (total * discountPlan2);
+						nvtBetaRent.propertyData.discountPlan2 = discountPlan2 * 100;
+						nvtBetaRent.propertyData.totalPlan2 = totalDiscountPlan2.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						nvtBetaRent.openDialog();
+					}
+				});
+
+			} else {
+
+				alert('No se encontro información sobre esta propiedad');
+
+			}
+
+		}, function(response) {
+
+			alert('Revisa tu conexión a internet o contacta a un administrador');
+
+		});
+	}
+
+	nvtBetaRent.openDialog = function() {
+		nvtBetaRent.dialogDisplay = '';
+	}
+
+	nvtBetaRent.closeDialog = function() {
+		nvtBetaRent.dialogDisplay = 'hide';
+	}
+
+	var init = function() {
+
+		Inmovables.getInmovablesData(19, 35).then(function(response) {
+
+			inmovablesData = response;
+			nvtBetaRent.inmovables = response.inmovables;
+			nvtBetaRent.inmovablesClassList = inmovables.generateInmovablesClassList(inmovablesData.inmovables);
+
+		});
+
+	}
+
+	init();
+
+});
 
 app.controller('NvtGammaQuoteCtrl', function($scope, Inmovables, Developments, Status) {
 
@@ -8245,8 +8657,230 @@ app.controller('NvtGammaQuoteCtrl', function($scope, Inmovables, Developments, S
 	init();
 
 });
+app.controller('NvtGammaRentaQuoteCtrl', function($scope, Inmovables, Developments, Status) {
+
+	var nvtGamma = this;
+	var inmovables = Inmovables;
+	
+	var inmovablesData = [];
+	nvtGamma.inmovablesClassList = [];
+	nvtGamma.propertyData = [];
+
+	nvtGamma.dialogDisplay = 'hide';
+
+	var discountPlan1 = .25;
+	var discountPlan2 = .20;
+
+	nvtGamma.showPropertyData = function(idCondominium, number, idProperty) {
+		
+		Developments.selectPropertyById(idProperty).then(function(response) {
+
+			if (Status.checkHttpStatusCode(response.status)) {
+
+				nvtGamma.property = response.property;
+				nvtGamma.property.sample = {};
+
+				nvtGamma.property.sample.m2 = (nvtGamma.property.cost.increase.m2 > 0) ? nvtGamma.property.cost.increase.m2 : nvtGamma.property.cost.m2;
+				nvtGamma.property.sample.property = nvtGamma.property.sample.m2 * nvtGamma.property.area;
+
+				nvtGamma.property.sample.discount1 = nvtGamma.property.sample.property - (nvtGamma.property.sample.property * discountPlan1);
+				nvtGamma.property.sample.discount2 = nvtGamma.property.sample.property - (nvtGamma.property.sample.property * discountPlan2);
+
+				angular.forEach(inmovablesData.inmovables, function(row, key) {
+					if (row.number == number && row.idCondominium == idCondominium) {
+						nvtGamma.propertyData.condominium = inmovablesData.condos[0].condominium;
+						if (row.property_class == 1) {
+							nvtGamma.propertyData.propertyClass = 'Nave industrial';
+							nvtGamma.costToBlock = '$30,000 MXN';
+						} else if (row.property_class == 2) {
+							nvtGamma.propertyData.propertyClass = 'Lote industrial';
+							nvtGamma.costToBlock = '$10,000 MXN';
+						} else {
+							nvtGamma.propertyData.propertyClass = 'Lote habitacional';
+							nvtGamma.costToBlock = '$10,000 MXN';
+						}
+		
+						for (let indexType = 0; indexType < inmovablesData.propertyTypes.length; indexType++) {
+		
+							if (inmovablesData.inmovables[key].idPropertyType == inmovablesData.propertyTypes[indexType].idPropertyType) {
+		
+								nvtGamma.propertyData.type = inmovablesData.propertyTypes[indexType].type;
+								nvtGamma.propertyData.cost_m2 = Number.parseFloat(inmovablesData.propertyTypes[indexType].cost_m2.toFixed(2));
+		
+								break;
+		
+							}
+		
+						}
+		
+						if (row.cost_m2_increase != null) {
+							nvtGamma.propertyData.cost_m2 = nvtGamma.property.cost.increase.m2;
+							nvtGamma.propertyData.cost_m2 = Number.parseFloat(nvtGamma.propertyData.cost_m2.toFixed(2));
+						}
+		
+						nvtGamma.propertyData.number = row.number;
+						nvtGamma.propertyData.area = row.area;
+						var total = nvtGamma.propertyData.cost_m2 * nvtGamma.propertyData.area;
+						nvtGamma.propertyData.total = total.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						var totalDiscountPlan1 = total - (total * discountPlan1);
+						nvtGamma.propertyData.discountPlan1 = discountPlan1 * 100;
+						nvtGamma.propertyData.totalPlan1 = totalDiscountPlan1.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						var totalDiscountPlan2 = total - (total * discountPlan2);
+						nvtGamma.propertyData.discountPlan2 = discountPlan2 * 100;
+						nvtGamma.propertyData.totalPlan2 = totalDiscountPlan2.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						nvtGamma.openDialog();
+					}
+				});
+
+			} else {
+
+				alert('No se encontro información sobre esta propiedad');
+
+			}
+
+		}, function(response) {
+
+			alert('Revisa tu conexión a internet o contacta a un administrador');
+
+		});
+	}
+
+	nvtGamma.openDialog = function() {
+		nvtGamma.dialogDisplay = '';
+	}
+
+	nvtGamma.closeDialog = function() {
+		nvtGamma.dialogDisplay = 'hide';
+	}
+
+	var init = function() {
+
+		Inmovables.getInmovablesData(1, 5).then(function(response) {
+
+			inmovablesData = response;
+			nvtGamma.inmovables = response.inmovables;
+			nvtGamma.inmovablesClassList = inmovables.generateInmovablesClassList(inmovablesData.inmovables);
+
+		});
+
+	}
+
+	init();
+
+});
 
 app.controller('NvtSantaRosaQuoteCtrl', function($scope, Inmovables, Developments, Status) {
+
+	var nvtSrosa = this;
+	var inmovables = Inmovables;
+	
+	var inmovablesData = [];
+	nvtSrosa.inmovablesClassList = [];
+	nvtSrosa.propertyData = [];
+
+	nvtSrosa.dialogDisplay = 'hide';
+
+	var discountPlan1 = .25;
+	var discountPlan2 = .20;
+
+	nvtSrosa.showPropertyData = function(idCondominium, number, idProperty) {
+
+		Developments.selectPropertyById(idProperty).then(function(response) {
+
+			if (Status.checkHttpStatusCode(response.status)) {
+
+				nvtSrosa.property = response.property;
+				nvtSrosa.property.sample = {};
+
+				nvtSrosa.property.sample.m2 = (nvtSrosa.property.cost.increase.m2 > 0) ? nvtSrosa.property.cost.increase.m2 : nvtSrosa.property.cost.m2;
+				nvtSrosa.property.sample.property = nvtSrosa.property.sample.m2 * nvtSrosa.property.area;
+
+				nvtSrosa.property.sample.discount1 = nvtSrosa.property.sample.property - (nvtSrosa.property.sample.property * discountPlan1);
+				nvtSrosa.property.sample.discount2 = nvtSrosa.property.sample.property - (nvtSrosa.property.sample.property * discountPlan2);
+
+				angular.forEach(inmovablesData.inmovables, function(row, key) {
+					if (row.number == number && row.idCondominium == idCondominium) {
+						nvtSrosa.propertyData.condominium = inmovablesData.condos[0].condominium;
+						if (row.property_class == 1) {
+							nvtSrosa.propertyData.propertyClass = 'Nave industrial';
+							nvtSrosa.costToBlock = '$20,000 MXN';
+						} else if (row.property_class == 2) {
+							nvtSrosa.propertyData.propertyClass = 'Lote industrial';
+							nvtSrosa.costToBlock = '$10,000 MXN';
+						} else {
+							nvtSrosa.propertyData.propertyClass = 'Lote habitacional';
+							nvtSrosa.costToBlock = '$10,000 MXN';
+						}
+		
+						for (let indexType = 0; indexType < inmovablesData.propertyTypes.length; indexType++) {
+		
+							if (inmovablesData.inmovables[key].idPropertyType == inmovablesData.propertyTypes[indexType].idPropertyType) {
+		
+								nvtSrosa.propertyData.type = inmovablesData.propertyTypes[indexType].type;
+								nvtSrosa.propertyData.cost_m2 = Number.parseFloat(inmovablesData.propertyTypes[indexType].cost_m2.toFixed(2));
+		
+								break;
+		
+							}
+		
+						}
+		
+						if (row.cost_m2_increase != null) {
+							nvtSrosa.propertyData.cost_m2 = nvtSrosa.property.cost.increase.m2;
+							nvtSrosa.propertyData.cost_m2 = Number.parseFloat(nvtSrosa.propertyData.cost_m2.toFixed(2));
+						}
+		
+						nvtSrosa.propertyData.number = row.number;
+						nvtSrosa.propertyData.area = row.area;
+						var total = nvtSrosa.propertyData.cost_m2 * nvtSrosa.propertyData.area;
+						nvtSrosa.propertyData.total = total.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						var totalDiscountPlan1 = total - (total * discountPlan1);
+						nvtSrosa.propertyData.discountPlan1 = discountPlan1 * 100;
+						nvtSrosa.propertyData.totalPlan1 = totalDiscountPlan1.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						var totalDiscountPlan2 = total - (total * discountPlan2);
+						nvtSrosa.propertyData.discountPlan2 = discountPlan2 * 100;
+						nvtSrosa.propertyData.totalPlan2 = totalDiscountPlan2.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						nvtSrosa.openDialog();
+					}
+				});
+
+			} else {
+
+				alert('No se encontro información sobre esta propiedad');
+
+			}
+
+		}, function(response) {
+
+			alert('Revisa tu conexión a internet o contacta a un administrador');
+
+		});
+	}
+
+	nvtSrosa.openDialog = function() {
+		nvtSrosa.dialogDisplay = '';
+	}
+
+	nvtSrosa.closeDialog = function() {
+		nvtSrosa.dialogDisplay = 'hide';
+	}
+
+	var init = function() {
+
+		Inmovables.getInmovablesData(3, 4).then(function(response) {
+
+			inmovablesData = response;
+			nvtSrosa.inmovables = response.inmovables;
+			nvtSrosa.inmovablesClassList = inmovables.generateInmovablesClassList(inmovablesData.inmovables);
+
+		});
+
+	}
+
+	init();
+
+});
+app.controller('NvtSantaRentaQuoteCtrl', function($scope, Inmovables, Developments, Status) {
 
 	var nvtSrosa = this;
 	var inmovables = Inmovables;
@@ -12758,6 +13392,115 @@ app.controller('PBTundraQuoteCtrl', function($scope, Inmovables, Moment) {
 		Inmovables.getInmovablesData(4, 30).then(function(response) {
 			inmovablesData = response;
 			tundra.inmovablesClassList = Inmovables.generateInmovablesClassList(inmovablesData.inmovables);
+		});
+	}
+
+	init();
+
+});
+//Lanzamiento de Tundra 2 17 Septiembre 2024
+app.controller('PBTundraDosQuoteCtrl', function($scope, Inmovables, Moment) {
+	
+	let tundraDos = this;
+
+	tundraDos.month = Moment.month();
+	tundraDos.nextMonth = Moment.nextMonth();
+	tundraDos.year = Moment.year();
+	
+	let inmovablesData = [];
+	tundraDos.inmovablesClassList = [];
+	tundraDos.propertyData = [];
+
+	tundraDos.dialogDisplay = 'hide';
+
+	let discountPlan1 = .25;
+	let discountPlan2 = .20;
+	let discountPlan3 = .25;
+
+	tundraDos.showPropertyData = function(idCondominium, number) {
+
+		angular.forEach(inmovablesData.inmovables, function(row, key) {
+
+			if (row.number == number && row.idCondominium == idCondominium) {
+
+				for (let indexCondos = 0; indexCondos < inmovablesData.condos.length; indexCondos++) {
+
+					if (inmovablesData.inmovables[key].idCondominium == inmovablesData.condos[indexCondos].idCondominium) {
+
+						tundraDos.propertyData.condominium = inmovablesData.condos[indexCondos].condominium;
+	
+						break;
+	
+					}
+	
+				}
+
+				if (row.property_class == 1) {
+					tundraDos.propertyData.propertyClass = 'Nave industrial';
+					tundraDos.costToBlock = '$30,000 MXN';
+				} else if (row.property_class == 2) {
+					tundraDos.propertyData.propertyClass = 'Lote industrial';
+					tundraDos.costToBlock = '$10,000 MXN';
+				} else {
+					tundraDos.propertyData.propertyClass = 'Lote habitacional';
+					tundraDos.costToBlock = '$10,000 MXN';
+				}
+				
+				for (let indexType = 0; indexType < inmovablesData.propertyTypes.length; indexType++) {
+
+					if (inmovablesData.inmovables[key].idPropertyType == inmovablesData.propertyTypes[indexType].idPropertyType) {
+
+						tundraDos.propertyData.type = inmovablesData.propertyTypes[indexType].type;
+						tundraDos.propertyData.cost_m2 = inmovablesData.propertyTypes[indexType].cost_m2;
+	
+						break;
+	
+					}
+	
+				}
+
+				if (inmovablesData.inmovables[key].cost_m2_increase != null) {
+					tundraDos.propertyData.cost_m2 += tundraDos.propertyData.cost_m2 * inmovablesData.inmovables[key].cost_m2_increase.value;
+				}
+
+				tundraDos.propertyData.number = row.number;
+				tundraDos.propertyData.area = row.area;
+				let total = tundraDos.propertyData.cost_m2 * tundraDos.propertyData.area;
+				tundraDos.propertyData.total = total.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+				
+				let totalDiscountPlan1 = total - (total * discountPlan1);
+				tundraDos.propertyData.discountPlan1 = discountPlan1 * 100;
+				tundraDos.propertyData.totalPlan1 = totalDiscountPlan1.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+				
+				let totalDiscountPlan2 = total - (total * discountPlan2);
+				tundraDos.propertyData.discountPlan2 = discountPlan2 * 100;
+				tundraDos.propertyData.totalPlan2 = totalDiscountPlan2.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+				
+				
+				let totalDiscountPlan3 = total - (total * discountPlan3);
+				tundraDos.propertyData.discountPlan3 = discountPlan3 * 100;
+				tundraDos.propertyData.totalPlan3 = totalDiscountPlan3.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+				
+				tundraDos.openDialog();
+
+			}
+
+		});
+
+	}
+
+	tundraDos.openDialog = function() {
+		tundraDos.dialogDisplay = '';
+	}
+
+	tundraDos.closeDialog = function() {
+		tundraDos.dialogDisplay = 'hide';
+	}
+
+	let init = function() {
+		Inmovables.getInmovablesData(4, 34).then(function(response) {
+			inmovablesData = response;
+			tundraDos.inmovablesClassList = Inmovables.generateInmovablesClassList(inmovablesData.inmovables);
 		});
 	}
 
