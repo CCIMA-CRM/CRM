@@ -24,7 +24,7 @@
 
 </head>
 
-<body ng-controller="NvtGammaRentaQuoteCtrl as nvtGamma">
+<body ng-controller="NvtGammaRentaQuoteCtrl as nvtGammaRenta">
   
 
     	<!--Menu actualizado 19-DIC-2022 -->
@@ -118,12 +118,12 @@
         </nav>
     </div>
 
-	<div class="modal-dialog" ng-class="nvtGamma.dialogDisplay">
-		<div class="backdrop-dialog" ng-click="nvtGamma.closeDialog()"></div>
+	<div class="modal-dialog" ng-class="nvtGammaRenta.dialogDisplay">
+		<div class="backdrop-dialog" ng-click="nvtGammaRenta.closeDialog()"></div>
 		<div class="container-dialog p-20">
 			<div class="toolbar-dialog blue-txt">
 				Cotización
-				<span ng-click="nvtGamma.closeDialog()">
+				<span ng-click="nvtGammaRenta.closeDialog()">
 					<img class="btn-close-dialog mt-4" src="media/assets/img/icons/close.svg">
 				</span>
 			</div>
@@ -133,28 +133,28 @@
         
         <div class="p-20 grey lighten-5">
 			<div class="p-5">
-				<h6 class="futura-med">Navetec Business Park {{nvtGamma.propertyData.condominium}}</h6>
+				<h6 class="futura-med">Navetec Business Park {{nvtGammaRenta.propertyData.condominium}}</h6>
 			</div>
 			<div class="p-5">
-				<h6 class="futura-light">{{nvtGamma.propertyData.propertyClass}}</h6>
+				<h6 class="futura-light">{{nvtGammaRenta.propertyData.propertyClass}}</h6>
 			</div>
 			<div class="p-5">
-				<h6 class="futura-light">{{nvtGamma.propertyData.type}}</h6>
+				<h6 class="futura-light">{{nvtGammaRenta.propertyData.type}}</h6>
 			</div>
 			<div class="p-5">
-				<h6 class="futura-light">Número {{nvtGamma.propertyData.number}}</h6>
+				<h6 class="futura-light">Número {{nvtGammaRenta.propertyData.number}}</h6>
 			</div>
 			<!-- <div class="p-5">
-				<h6 class="futura-light">Dimenciones: {{nvtGamma.propertyData.dimensions}}</h6>
+				<h6 class="futura-light">Dimenciones: {{nvtGammaRenta.propertyData.dimensions}}</h6>
 			</div> -->
 			<div class="p-5">
-				<h6 class="futura-light">Área de {{nvtGamma.propertyData.area}} M&sup2;</h6>
+				<h6 class="futura-light">Área de {{nvtGammaRenta.propertyData.area}} M&sup2;</h6>
 			</div>
 			<div class="p-5">
-				<h6 class="futura-light">Precio por M&sup2; de ${{nvtGamma.propertyData.cost_m2}} MXN</h6>
+				<h6 class="futura-light">Precio por M&sup2; de ${{nvtGammaRenta.propertyData.cost_m2}} MXN</h6>
 			</div>
 			<div class="p-5">
-				<h6 class="futura-light green-text">Precio de ${{nvtGamma.propertyData.total}} MXN <span style="color: #857C82; font-size: 12px;">+ I.V.A.</span></h6>
+				<h6 class="futura-light green-text">Precio de ${{nvtGammaRenta.propertyData.total}} MXN <span style="color: #857C82; font-size: 12px;">+ I.V.A.</span></h6>
 			</div>
         </div>
 			</div>
@@ -229,7 +229,7 @@
 
 			<g id="ships">
 				<g id="isla_a">
-					<g ng-class="nvtGamma.inmovablesClassList[0]" ng-click="nvtGamma.showPropertyData(8, '1A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[0]" ng-click="nvtGammaRenta.showPropertyData(76, '1A')">
 						<polygon id="a-l1" class="property nvt-sprite-1" points="965.6,32.4 905.1,32.9 906.8,208.6 967.3,207.9"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 928.5638 39.7196)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 928.5645 205.41)" class="st1 futura-book st3">14.00</text>
@@ -245,7 +245,7 @@
 						<rect x="933.6" y="87" transform="matrix(0.7034 -0.7108 0.7108 0.7034 213.6889 692.8642)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="937.1,95.2 937,90.5 937,85.6 941.9,90.4"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[1]" ng-click="nvtGamma.showPropertyData(8, '2A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[1]" ng-click="nvtGammaRenta.showPropertyData(76, '2A')">
 						<polygon id="a-l2" class="property nvt-sprite-2" points="844.5,33.4 846.2,209.1 906.7,208.6 904.9,32.9"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 868.0345 41.1896)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 868.034 206.8698)" class="st1 futura-book st3">14.00</text>
@@ -258,7 +258,7 @@
 						<rect x="872.9" y="87.4" transform="matrix(0.7034 -0.7108 0.7108 0.7034 195.3477 649.8771)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="876.4,95.7 876.4,91 876.3,86 881.2,90.9"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[2]" ng-click="nvtGamma.showPropertyData(8, '3A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[2]" ng-click="nvtGammaRenta.showPropertyData(76, '3A')">
 						<polygon id="a-l3" class="property nvt-sprite-1" points="784.1,33.9 785.8,209.7 846.2,209.1 844.5,33.4"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 808.5838 41.9199)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 808.5844 207.6098)" class="st1 futura-book st3">14.00</text>
@@ -273,7 +273,7 @@
 						<rect x="813.7" y="88.2" transform="matrix(0.7034 -0.7108 0.7108 0.7034 177.235 607.985)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="817.1,96.5 817.1,91.8 817.1,86.8 821.9,91.6"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[3]" ng-click="nvtGamma.showPropertyData(8, '4A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[3]" ng-click="nvtGammaRenta.showPropertyData(76, '4A')">
 						<polygon id="a-l4" class="property nvt-sprite-2" points="723.7,34.5 725.5,210.3 785.8,209.7 784.1,33.9"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 748.0046 41.9197)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 748.0042 207.6096)" class="st1 futura-book st3">14.00</text>
@@ -288,7 +288,7 @@
 						<rect x="753" y="88.8" transform="matrix(0.7034 -0.7108 0.7108 0.7034 158.7952 565.0461)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="756.5,97.1 756.4,92.4 756.4,87.4 761.3,92.2"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[4]" ng-click="nvtGamma.showPropertyData(8, '5A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[4]" ng-click="nvtGammaRenta.showPropertyData(76, '5A')">
 						<polygon id="a-l5" class="property nvt-sprite-1" points="663.3,35.1 665,210.9 725.5,210.3 723.7,34.5"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 687.1944 42.6499)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 687.194 208.3398)" class="st1 futura-book st3">14.00</text>
@@ -303,7 +303,7 @@
 						<rect x="693" y="89.4" transform="matrix(0.7034 -0.7108 0.7108 0.7034 140.5803 522.5501)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="696.4,97.7 696.4,93 696.4,88 701.2,92.8"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[5]" ng-click="nvtGamma.showPropertyData(8, '6A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[5]" ng-click="nvtGammaRenta.showPropertyData(76, '6A')">
 						<polygon id="a-l6" class="property nvt-sprite-2" points="602.9,35.7 604.6,211.4 665,210.9 663.3,35.1"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 626.8945 42.6498)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 626.8941 208.3397)" class="st1 futura-book st3">14.00</text>
@@ -318,7 +318,7 @@
 						<rect x="632.3" y="90" transform="matrix(0.7034 -0.7108 0.7108 0.7034 122.1291 479.6126)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="635.8,98.3 635.7,93.6 635.7,88.6 640.6,93.5"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[6]" ng-click="nvtGamma.showPropertyData(8, '7A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[6]" ng-click="nvtGammaRenta.showPropertyData(76, '7A')">
 						<polygon id="a-l7" class="property nvt-sprite-1" points="542.5,36.4 544.2,212 604.6,211.4 602.9,35.7"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 566.7543 43.3899)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 566.7543 209.0696)" class="st1 futura-book st3">14.00</text>
@@ -333,7 +333,7 @@
 						<rect x="571.9" y="90.7" transform="matrix(0.7034 -0.7108 0.7108 0.7034 103.729 436.8274)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="575.3,99 575.3,94.3 575.2,89.3 580.1,94.1"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[7]" ng-click="nvtGamma.showPropertyData(8, '8A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[7]" ng-click="nvtGammaRenta.showPropertyData(76, '8A')">
 						<polygon id="a-l8" class="property nvt-sprite-2" points="482.1,36.8 483.8,212.5 544.2,212 542.5,36.4"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 506.3544 43.3899)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 506.3543 209.07)" class="st1 futura-book st3">14.00</text>
@@ -348,7 +348,7 @@
 						<rect x="511.5" y="91" transform="matrix(0.7034 -0.7108 0.7108 0.7034 85.5672 394.0053)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="514.9,99.3 514.9,94.6 514.9,89.6 519.7,94.5"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[8]" ng-click="nvtGamma.showPropertyData(8, '9A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[8]" ng-click="nvtGammaRenta.showPropertyData(76, '9A')">
 						<polygon id="a-l9" class="property nvt-sprite-1" points="421.7,37.3 423.4,213.1 483.8,212.5 482.1,36.8"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 445.9441 44.85)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 445.9442 210.5399)" class="st1 futura-book st3">14.00</text>
@@ -363,7 +363,7 @@
 						<rect x="451.1" y="91.8" transform="matrix(0.7034 -0.7108 0.7108 0.7034 67.1234 351.3403)" class="st7" width="6.9" height="6.9"/>
 						<polygon class="st7" points="454.6,100.1 454.5,95.4 454.5,90.4 459.4,95.2"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[9]" ng-click="nvtGamma.showPropertyData(8, '10A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[9]" ng-click="nvtGammaRenta.showPropertyData(76, '10A')">
 						<polygon id="a-l10" class="property nvt-sprite-2" points="361.3,38 363,213.6 423.4,213.1 421.7,37.3"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 385.5441 44.8499)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 385.5442 210.5399)" class="st1 futura-book st3">14.00</text>
@@ -378,7 +378,7 @@
 						<rect x="390.4" y="92.3" transform="matrix(0.7034 -0.7108 0.7108 0.7034 48.7681 308.3209)" class="st7" width="6.8" height="6.9"/>
 						<polygon class="st7" points="393.8,100.6 393.8,95.9 393.8,90.9 398.7,95.7"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[10]" ng-click="nvtGamma.showPropertyData(8, '11A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[10]" ng-click="nvtGammaRenta.showPropertyData(76, '11A')">
 						<polygon id="a-l11" class="property nvt-sprite-1" points="300.8,38.5 302.6,214.3 363,213.6 361.3,38"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 324.964 45.5895)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 324.964 211.2697)" class="st1 futura-book st3">14.00</text>
@@ -393,7 +393,7 @@
 						<rect x="330.5" y="93" transform="matrix(0.7034 -0.7108 0.7108 0.7034 30.5293 265.9688)" class="st7" width="6.8" height="6.9"/>
 						<polygon class="st7" points="334,101.3 333.9,96.5 333.9,91.6 338.8,96.4"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[11]" ng-click="nvtGamma.showPropertyData(8, '12A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[11]" ng-click="nvtGammaRenta.showPropertyData(76, '12A')">
 						<polygon id="a-l12" class="property nvt-sprite-2" points="240.4,39.1 242.2,214.8 302.6,214.3 300.8,38.5"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 264.7539 45.59)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 264.7539 211.2697)" class="st1 futura-book st3">14.00</text>
@@ -408,7 +408,7 @@
 						<rect x="270" y="93.6" transform="matrix(0.7034 -0.7108 0.7108 0.7034 12.0924 223.123)" class="st7" width="6.9" height="6.9"/>
 						<polygon class="st7" points="273.4,101.9 273.4,97.2 273.4,92.2 278.2,97.1"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[12]" ng-click="nvtGamma.showPropertyData(8, '13A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[12]" ng-click="nvtGammaRenta.showPropertyData(76, '13A')">
 						<polygon id="a-l13" class="property nvt-sprite-1" points="180.1,39.7 181.8,215.4 242.2,214.8 240.4,39.1"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 204.3144 46.3199)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 204.314 212.0099)" class="st1 futura-book st3">14.00</text>
@@ -423,7 +423,7 @@
 						<rect x="209.3" y="94.1" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -6.2276 180.0993)" class="st7" width="6.8" height="6.9"/>
 						<polygon class="st7" points="212.7,102.4 212.7,97.6 212.7,92.7 217.5,97.5"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[13]" ng-click="nvtGamma.showPropertyData(8, '14A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[13]" ng-click="nvtGammaRenta.showPropertyData(76, '14A')">
 						<polygon id="a-l14" class="property nvt-sprite-2" points="119.7,40.3 121.4,215.9 181.8,215.4 180.1,39.7"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 143.9041 46.32)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 143.9042 212.0099)" class="st1 futura-book st3">14.00</text>
@@ -438,7 +438,7 @@
 						<rect x="148.9" y="94.6" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -24.5023 137.3281)" class="st7" width="6.8" height="6.9"/>
 						<polygon class="st7" points="152.3,102.9 152.3,98.1 152.3,93.2 157.1,98"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[14]" ng-click="nvtGamma.showPropertyData(8, '15A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[14]" ng-click="nvtGammaRenta.showPropertyData(76, '15A')">
 						<polygon id="a-l15" class="property nvt-sprite-1" points="59.3,40.8 61,216.5 121.4,215.9 119.7,40.3"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 83.5442 47.7898)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 83.5442 213.47)" class="st1 futura-book st3">14.00</text>
@@ -453,7 +453,7 @@
 						<rect x="88.7" y="95.3" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -42.8202 94.7701)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="92.2,103.5 92.1,98.8 92.1,93.9 97,98.7"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[15]" ng-click="nvtGamma.showPropertyData(8, '16A')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[15]" ng-click="nvtGammaRenta.showPropertyData(76, '16A')">
 						<polygon id="a-l16" class="property nvt-sprite-2" points="-1.1,41.4 -0.6,217.1 61,216.5 59.3,40.8"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 22.4943 48.52)" class="st1 futura-book st3">14.00</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 22.4944 214.2099)" class="st1 futura-book st3">14.00</text>
@@ -470,7 +470,7 @@
 					</g>
 				</g>
 				<g id="isla_b">
-					<g ng-class="nvtGamma.inmovablesClassList[16]" ng-click="nvtGamma.showPropertyData(8, '1B')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[16]" ng-click="nvtGammaRenta.showPropertyData(76, '1B')">
 						<polygon id="b-l1" class="property nvt-sprite-2" points="947,292.1 946.9,352.6 797.5,352.6 797.6,292.1"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 863.3842 298.6499)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 800.826 314.2202)" class="st1 futura-book st3">14.00</text>
@@ -484,7 +484,7 @@
 						<rect x="872.2" y="304.6" transform="matrix(0.7034 -0.7108 0.7108 0.7034 40.7549 713.7405)" class="st7" width="6.9" height="6.8"/>
 						<polygon class="st7" points="875.6,312.9 875.6,308.2 875.6,303.2 880.4,308"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[17]" ng-click="nvtGamma.showPropertyData(8, '2B')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[17]" ng-click="nvtGammaRenta.showPropertyData(76, '2B')">
 						<polygon id="b-l2" class="property nvt-sprite-1" points="947,413 946.9,352.6 797.5,352.6 797.5,413"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 863.3845 359.92)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 800.8246 375.5002)" class="st1 futura-book st3">14.00</text>
@@ -498,7 +498,7 @@
 						<rect x="872.2" y="365.2" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -2.3202 731.7078)" class="st7" width="6.9" height="6.8"/>
 						<polygon class="st7" points="875.6,373.5 875.6,368.8 875.6,363.8 880.4,368.6"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[18]" ng-click="nvtGamma.showPropertyData(8, '3B')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[18]" ng-click="nvtGammaRenta.showPropertyData(76, '3B')">
 						<polygon id="b-l3" class="property nvt-sprite-2" points="947,473.3 947,413 797.5,413 797.5,473.5"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 863.384 420.6101)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 800.8253 436.1799)" class="st1 futura-book st3">14.00</text>
@@ -512,7 +512,7 @@
 						<rect x="872.2" y="425.8" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -45.3781 749.6822)" class="st7" width="6.9" height="6.8"/>
 						<polygon class="st7" points="875.6,434.1 875.6,429.3 875.6,424.4 880.4,429.2"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[19]" ng-click="nvtGamma.showPropertyData(8, '4B')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[19]" ng-click="nvtGammaRenta.showPropertyData(76, '4B')">
 						<polygon id="b-l4" class="property nvt-sprite-1" points="947,533.8 947,473.3 797.5,473.5 797.5,533.8"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 863.3841 480.7801)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 800.8251 496.3499)" class="st1 futura-book st3">14.00</text>
@@ -526,7 +526,7 @@
 						<rect x="872.2" y="486.4" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -88.439 767.6494)" class="st7" width="6.9" height="6.8"/>
 						<polygon class="st7" points="875.6,494.6 875.6,489.9 875.6,485 880.4,489.8"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[20]" ng-click="nvtGamma.showPropertyData(8, '5B')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[20]" ng-click="nvtGammaRenta.showPropertyData(76, '5B')">
 						<polygon id="b-l5" class="property nvt-sprite-2" points="947,594.2 947,533.8 797.5,533.8 797.5,594.2"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 863.384 540.4398)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 800.8261 556.0199)" class="st1 futura-book st3">14.00</text>
@@ -540,7 +540,7 @@
 						<rect x="872.2" y="546.9" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -131.4969 785.6238)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="875.6,555.2 875.6,550.5 875.6,545.5 880.4,550.4"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[21]" ng-click="nvtGamma.showPropertyData(8, '6B')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[21]" ng-click="nvtGammaRenta.showPropertyData(76, '6B')">
 						<polygon id="b-l6" class="property nvt-sprite-1" points="947,654.6 947,594.2 797.5,594.2 797.5,654.6"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 863.384 601.48)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 800.8251 617.0601)" class="st1 futura-book st3">14.00</text>
@@ -554,7 +554,7 @@
 						<rect x="872.2" y="607.5" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -174.5578 803.591)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="875.6,615.8 875.6,611.1 875.6,606.1 880.4,610.9"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[22]" ng-click="nvtGamma.showPropertyData(8, '7B')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[22]" ng-click="nvtGammaRenta.showPropertyData(76, '7B')">
 						<polygon id="b-l7" class="property nvt-sprite-2" points="947,715.1 947,654.6 797.5,654.6 797.5,715.1"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 863.3838 662.4)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 800.8253 677.9801)" class="st1 futura-book st3">14.00</text>
@@ -568,7 +568,7 @@
 						<rect x="872.2" y="668.1" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -217.6187 821.5583)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="875.6,676.4 875.6,671.7 875.6,666.7 880.4,671.5"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[23]" ng-click="nvtGamma.showPropertyData(8, '8B')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[23]" ng-click="nvtGammaRenta.showPropertyData(76, '8B')">
 						<polygon id="b-l8" class="property nvt-sprite-1" points="947,775.4 947,715.1 797.5,715.1 797.5,775.4"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 863.3838 722.5598)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 800.8253 738.1403)" class="st1 futura-book st3">14.00</text>
@@ -582,7 +582,7 @@
 						<rect x="872.2" y="728.7" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -260.6837 839.5297)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="875.6,737 875.6,732.2 875.6,727.3 880.4,732.1"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[24]" ng-click="nvtGamma.showPropertyData(8, '9B')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[24]" ng-click="nvtGammaRenta.showPropertyData(76, '9B')">
 						<polygon id="b-l9" class="property nvt-sprite-2" points="947,835.9 947,775.4 797.5,775.4 797.5,835.9"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 863.3841 782.7498)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 800.8251 798.3201)" class="st1 futura-book st3">14.00</text>
@@ -596,7 +596,7 @@
 						<rect x="872.2" y="789.3" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -303.7447 857.4969)" class="st7" width="6.8" height="6.8"/>
 						<polygon class="st7" points="875.6,797.6 875.6,792.8 875.6,787.9 880.4,792.7"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[25]" ng-click="nvtGamma.showPropertyData(8, '10B')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[25]" ng-click="nvtGammaRenta.showPropertyData(76, '10B')">
 						<polygon id="b-l10" class="property nvt-sprite-1" points="946.9,906.1 947,835.9 797.5,835.9 797.5,903.3"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 863.3843 842.93)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 863.3843 901.8197)" class="st1 futura-book st3">34.65</text>
@@ -613,7 +613,7 @@
 					</g>
 				</g>
 				<g id="isla_c">
-					<g ng-class="nvtGamma.inmovablesClassList[26]" ng-click="nvtGamma.showPropertyData(8, '1C')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[26]" ng-click="nvtGammaRenta.showPropertyData(76, '1C')">
 						<polygon id="c-l1" class="property nvt-sprite-1" points="648.5,292.3 797.5,292.1 797.5,352.6 648.5,352.6"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 714.0037 298.65)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 651.4534 314.2202)" class="st1 futura-book st3">14.00</text>
@@ -627,7 +627,7 @@
 						<rect x="722" y="304.6" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -3.7831 607.018)" class="st7" width="6.9" height="6.8"/>
 						<polygon class="st7" points="725.5,312.9 725.4,308.2 725.4,303.2 730.3,308"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[27]" ng-click="nvtGamma.showPropertyData(8, '2C')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[27]" ng-click="nvtGammaRenta.showPropertyData(76, '2C')">
 						<rect id="c-l2" x="648.5" y="352.6" class="property nvt-sprite-2" width="149" height="60.4"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 714.004 359.9201)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 651.4539 375.5002)" class="st1 futura-book st3">14.00</text>
@@ -638,7 +638,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 712.5041 384.5486)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 719.5038 384.4786)" class="st4 futura-light st6">VE 2C</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[28]" ng-click="nvtGamma.showPropertyData(8, '3C')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[28]" ng-click="nvtGammaRenta.showPropertyData(76, '3C')">
 						<rect id="c-l3" x="648.5" y="413" class="property nvt-sprite-1" width="149" height="60.5"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 714.0045 420.6096)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 651.4545 436.18)" class="st1 futura-book st3">14.00</text>
@@ -649,7 +649,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 712.5045 445.2387)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 719.5042 445.1687)" class="st4 futura-light st6">VE 3C</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[29]" ng-click="nvtGamma.showPropertyData(8, '4C')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[29]" ng-click="nvtGammaRenta.showPropertyData(76, '4C')">
 						<polygon id="c-l4" class="property nvt-sprite-2" points="797.5,533.8 648.5,533.8 648.5,473.5 797.5,473.5"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 714.0045 480.7797)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 651.4544 496.3499)" class="st1 futura-book st3">14.00</text>
@@ -660,7 +660,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 712.5046 505.4087)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 719.5043 505.3387)" class="st4 futura-light st6">VE4C</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[30]" ng-click="nvtGamma.showPropertyData(8, '5C')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[30]" ng-click="nvtGammaRenta.showPropertyData(76, '5C')">
 						<polygon id="c-l5" class="property nvt-sprite-1" points="797.5,594.2 648.5,594.2 648.5,533.8 797.5,533.8"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 714.0045 540.4399)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 651.4534 556.0199)" class="st1 futura-book st3">14.00</text>
@@ -671,7 +671,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 712.5045 565.0689)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 719.5042 564.9989)" class="st4 futura-light st6">VE 5C</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[31]" ng-click="nvtGamma.showPropertyData(8, '6C')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[31]" ng-click="nvtGammaRenta.showPropertyData(76, '6C')">
 						<polygon id="c-l6" class="property nvt-sprite-2" points="797.5,654.6 648.5,654.6 648.5,594.2 797.5,594.2"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 714.0045 601.48)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 651.4544 617.0601)" class="st1 futura-book st3">14.00</text>
@@ -682,7 +682,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 712.5046 626.1086)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 719.5042 626.0386)" class="st4 futura-light st6">VE 6C</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[32]" ng-click="nvtGamma.showPropertyData(8, '7C')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[32]" ng-click="nvtGammaRenta.showPropertyData(76, '7C')">
 						<polygon id="c-l7" class="property nvt-sprite-1" points="797.5,715.1 648.5,715.1 648.5,654.6 797.5,654.6"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 714.0043 662.4001)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 651.4546 677.9801)" class="st1 futura-book st3">14.00</text>
@@ -693,7 +693,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 712.5043 687.0286)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 719.504 686.9586)" class="st4 futura-light st6">VE 7C</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[33]" ng-click="nvtGamma.showPropertyData(8, '8C')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[33]" ng-click="nvtGammaRenta.showPropertyData(76, '8C')">
 						<polygon id="c-l8" class="property nvt-sprite-2" points="797.5,775.4 648.5,775.4 648.5,715.1 797.5,715.1"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 714.0141 722.5699)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 651.4546 738.1404)" class="st1 futura-book st3">14.00</text>
@@ -704,7 +704,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 712.5043 747.1888)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 719.504 747.1188)" class="st4 futura-light st6">VE 8C</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[34]" ng-click="nvtGamma.showPropertyData(8, '9C')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[34]" ng-click="nvtGammaRenta.showPropertyData(76, '9C')">
 						<polygon id="c-l9" class="property nvt-sprite-1" points="797.5,835.9 648.5,835.9 648.5,775.4 797.5,775.4"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 714.0046 782.7498)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 651.4544 798.3201)" class="st1 futura-book st3">14.00</text>
@@ -715,7 +715,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 712.5046 807.3788)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 719.5043 807.3088)" class="st4 futura-light st6">VE 9C</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[35]" ng-click="nvtGamma.showPropertyData(8, '10C')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[35]" ng-click="nvtGammaRenta.showPropertyData(76, '10C')">
 						<polygon id="c-l10" class="property nvt-sprite-2" points="797.5,903.3 648.4,900.4 648.5,835.9 797.5,835.9"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 714.0038 842.9296)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 714.0043 898.74)" class="st1 futura-book st3">34.65</text>
@@ -729,7 +729,7 @@
 					</g>
 				</g>
 				<g id="isla_d">
-					<g ng-class="nvtGamma.inmovablesClassList[36]" ng-click="nvtGamma.showPropertyData(8, '1D')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[36]" ng-click="nvtGammaRenta.showPropertyData(76, '1D')">
 						<polygon id="d-l1" class="property nvt-sprite-2" points="561.1,352.6 561.2,292 411.6,292 411.6,352.6"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 477.444 298.6497)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 414.8947 314.22)" class="st1 futura-book st3">14.00</text>
@@ -743,7 +743,7 @@
 						<rect x="487.8" y="304.6" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -73.25 440.5621)" class="st7" width="6.9" height="6.9"/>
 						<polygon class="st7" points="491.3,312.9 491.2,308.2 491.2,303.2 496.1,308"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[37]" ng-click="nvtGamma.showPropertyData(8, '2D')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[37]" ng-click="nvtGammaRenta.showPropertyData(76, '2D')">
 						<polygon id="d-l2" class="property nvt-sprite-1" points="561.2,413 561.1,352.6 411.6,352.6 411.7,413.1"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 477.4443 359.9199)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 553.8962 375.5002)" class="st1 futura-book st3">14.00</text>
@@ -754,7 +754,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 475.944 384.5489)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 482.9441 384.4789)" class="st4 futura-light st6">VE 2D</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[38]" ng-click="nvtGamma.showPropertyData(8, '3D')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[38]" ng-click="nvtGammaRenta.showPropertyData(76, '3D')">
 						<polygon id="d-l3" class="property nvt-sprite-2" points="561.2,473.4 561.2,413 411.7,413.1 411.5,473.3"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 477.4443 420.6099)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 414.886 436.1801)" class="st1 futura-book st3">14.00</text>
@@ -765,7 +765,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 475.9444 445.2389)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 482.944 445.1689)" class="st4 futura-light st6">VE 3D</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[39]" ng-click="nvtGamma.showPropertyData(8, '4D')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[39]" ng-click="nvtGammaRenta.showPropertyData(76, '4D')">
 						<polygon id="d-l4" class="property nvt-sprite-1" points="561.2,533.8 561.2,473.4 411.5,473.3 411.5,533.8"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 477.4444 480.7799)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 414.8957 496.3502)" class="st1 futura-book st3">14.00</text>
@@ -776,7 +776,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 475.944 505.4089)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 482.9441 505.3389)" class="st4 futura-light st6">VE 4D</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[40]" ng-click="nvtGamma.showPropertyData(8, '5D')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[40]" ng-click="nvtGammaRenta.showPropertyData(76, '5D')">
 						<polygon id="d-l5" class="property nvt-sprite-2" points="561.2,594.2 411.5,594.2 411.5,533.8 561.2,533.8"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 477.4443 540.4396)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 414.8947 556.0202)" class="st1 futura-book st3">14.00</text>
@@ -787,7 +787,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 475.9444 565.0687)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 482.944 564.9987)" class="st4 futura-light st6">VE 5D</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[41]" ng-click="nvtGamma.showPropertyData(8, '6D')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[41]" ng-click="nvtGammaRenta.showPropertyData(76, '6D')">
 						<polygon id="d-l6" class="property nvt-sprite-1" points="411.5,654.6 561.2,654.6 561.2,594.2 411.5,594.2"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 477.4443 601.4798)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 414.8957 617.0599)" class="st1 futura-book st3">14.00</text>
@@ -798,7 +798,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 475.9439 626.1088)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 482.944 626.0388)" class="st4 futura-light st6">VE 6D</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[42]" ng-click="nvtGamma.showPropertyData(8, '7D')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[42]" ng-click="nvtGammaRenta.showPropertyData(76, '7D')">
 						<polygon id="d-l7" class="property nvt-sprite-2" points="561.2,715.1 411.5,715.1 411.5,654.6 561.2,654.6"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 477.4441 662.3998)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 414.8959 677.9799)" class="st1 futura-book st3">14.00</text>
@@ -809,7 +809,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 475.9442 687.0289)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 482.9443 686.9589)" class="st4 futura-light st6">VE 7D</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[43]" ng-click="nvtGamma.showPropertyData(8, '8D')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[43]" ng-click="nvtGammaRenta.showPropertyData(76, '8D')">
 						<polygon id="d-l8" class="property nvt-sprite-1" points="561.2,775.4 561.2,715.1 411.5,715.1 411.5,775.4"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 477.4441 722.5596)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 414.8959 738.1401)" class="st1 futura-book st3">14.00</text>
@@ -820,7 +820,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 475.9442 747.1891)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 482.9443 747.1191)" class="st4 futura-light st6">VE 8D</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[44]" ng-click="nvtGamma.showPropertyData(8, '9D')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[44]" ng-click="nvtGammaRenta.showPropertyData(76, '9D')">
 						<polygon id="d-l9" class="property nvt-sprite-2" points="561.2,835.9 561.2,775.4 411.5,775.4 411.5,835.9"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 477.4439 782.7501)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 414.8859 798.3203)" class="st1 futura-book st3">14.00</text>
@@ -831,7 +831,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 475.944 807.3786)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 482.9442 807.3086)" class="st4 futura-light st6">VE 9D</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[45]" ng-click="nvtGamma.showPropertyData(8, '10D')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[45]" ng-click="nvtGammaRenta.showPropertyData(76, '10D')">
 						<polygon id="d-l10" class="property nvt-sprite-1" points="561.2,898.7 561.2,835.9 411.5,835.9 411.6,895.8"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 477.4441 842.9299)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 414.8955 858.5001)" class="st1 futura-book st3">14.00</text>
@@ -845,7 +845,7 @@
 					</g>
 				</g>
 				<g id="isla_e">
-					<g ng-class="nvtGamma.inmovablesClassList[46]" ng-click="nvtGamma.showPropertyData(8, '1E')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[46]" ng-click="nvtGammaRenta.showPropertyData(76, '1E')">
 						<polygon id="e-l1" class="property nvt-sprite-1" points="262.7,292.1 411.6,292 411.6,352.6 262.7,352.6"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 328.0742 298.6497)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 265.5141 314.2199)" class="st1 futura-book st3">14.00</text>
@@ -859,7 +859,7 @@
 						<rect x="336" y="304.6" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -118.2707 332.6617)" class="st7" width="6.9" height="6.9"/>
 						<polygon class="st7" points="339.5,312.9 339.5,308.2 339.4,303.2 344.3,308"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[47]" ng-click="nvtGamma.showPropertyData(8, '2E')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[47]" ng-click="nvtGammaRenta.showPropertyData(76, '2E')">
 						<polygon id="e-l2" class="property nvt-sprite-2" points="262.8,413 411.7,413.1 411.6,352.6 262.7,352.6"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 328.0741 359.9198)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 265.5146 375.5003)" class="st1 futura-book st3">14.00</text>
@@ -870,7 +870,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 326.5639 384.549)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 333.5641 384.479)" class="st4 futura-light st6">VE 2E</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[48]" ng-click="nvtGamma.showPropertyData(8, '3E')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[48]" ng-click="nvtGammaRenta.showPropertyData(76, '3E')">
 						<polygon id="e-l3" class="property nvt-sprite-1" points="411.5,473.3 262.7,473.5 262.8,413 411.7,413.1"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 328.074 420.6099)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 265.5153 436.1801)" class="st1 futura-book st3">14.00</text>
@@ -881,7 +881,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 326.5644 445.239)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 333.564 445.169)" class="st4 futura-light st6">VE 3E</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[49]" ng-click="nvtGamma.showPropertyData(8, '4E')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[49]" ng-click="nvtGammaRenta.showPropertyData(76, '4E')">
 						<polygon id="e-l4" class="property nvt-sprite-2" points="262.7,533.8 411.5,533.8 411.5,473.3 262.7,473.5"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 328.0741 480.7799)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 265.5152 496.3501)" class="st1 futura-book st3">14.00</text>
@@ -892,7 +892,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 326.564 505.409)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 333.5641 505.339)" class="st4 futura-light st6">VE 4E</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[50]" ng-click="nvtGamma.showPropertyData(8, '5E')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[50]" ng-click="nvtGammaRenta.showPropertyData(76, '5E')">
 						<polygon id="e-l5" class="property nvt-sprite-1" points="262.7,594.2 411.5,594.2 411.5,533.8 262.7,533.8"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 328.074 540.4396)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 265.5142 556.0201)" class="st1 futura-book st3">14.00</text>
@@ -903,7 +903,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 326.5644 565.0687)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 333.564 564.9987)" class="st4 futura-light st6">VE 5E</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[51]" ng-click="nvtGamma.showPropertyData(8, '6E')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[51]" ng-click="nvtGammaRenta.showPropertyData(76, '6E')">
 						<polygon id="e-l6" class="property nvt-sprite-2" points="262.7,654.6 411.5,654.6 411.5,594.2 262.7,594.2"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 328.074 601.4798)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 265.5152 617.0602)" class="st1 futura-book st3">14.00</text>
@@ -914,7 +914,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 326.5644 626.1089)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 333.564 626.0389)" class="st4 futura-light st6">VE 6E</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[52]" ng-click="nvtGamma.showPropertyData(8, '7E')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[52]" ng-click="nvtGammaRenta.showPropertyData(76, '7E')">
 						<polygon id="e-l7" class="property nvt-sprite-1" points="262.7,715.1 411.5,715.1 411.5,654.6 262.7,654.6"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 328.0743 662.3998)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 265.5154 677.9803)" class="st1 futura-book st3">14.00</text>
@@ -925,7 +925,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 326.5642 687.0289)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 333.5643 686.9589)" class="st4 futura-light st6">VE 7E</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[53]" ng-click="nvtGamma.showPropertyData(8, '8E')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[53]" ng-click="nvtGammaRenta.showPropertyData(76, '8E')">
 						<polygon id="e-l8" class="property nvt-sprite-2" points="262.7,775.4 411.5,775.4 411.5,715.1 262.7,715.1"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 328.0739 722.5698)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 265.5154 738.1401)" class="st1 futura-book st3">14.00</text>
@@ -936,7 +936,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 326.5642 747.1887)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 333.5643 747.1187)" class="st4 futura-light st6">VE 8E</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[54]" ng-click="nvtGamma.showPropertyData(8, '9E')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[54]" ng-click="nvtGammaRenta.showPropertyData(76, '9E')">
 						<polygon id="e-l9" class="property nvt-sprite-1" points="262.7,835.9 411.5,835.9 411.5,775.4 262.7,775.4"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 328.0741 782.7496)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 265.5152 798.3203)" class="st1 futura-book st3">14.00</text>
@@ -947,7 +947,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 326.564 807.3787)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 333.5641 807.3087)" class="st4 futura-light st6">VE 9E</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[55]" ng-click="nvtGamma.showPropertyData(8, '10E')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[55]" ng-click="nvtGammaRenta.showPropertyData(76, '10E')">
 						<polygon id="e-l10" class="property nvt-sprite-2" points="262.7,892.9 411.6,895.8 411.5,835.9 262.7,835.9"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 328.0743 842.9298)" class="st1 futura-book st3">34.58</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 328.0743 891.2198)" class="st1 futura-book st3">34.65</text>
@@ -961,7 +961,7 @@
 					</g>
 				</g>
 				<g id="isla_f">
-					<g ng-class="nvtGamma.inmovablesClassList[56]" ng-click="nvtGamma.showPropertyData(8, '1F')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[56]" ng-click="nvtGammaRenta.showPropertyData(76, '1F')">
 						<polygon id="f-l1" class="property nvt-sprite-2" points="-0.5,292.1 175.2,292.1 175.3,352.7 -0.5,352.7"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 75.0542 298.65)" class="st1 futura-book st3">40.70</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 4.4249 314.22)" class="st1 futura-book st3">14.00</text>
@@ -975,7 +975,7 @@
 						<rect x="80.9" y="304.6" transform="matrix(0.7034 -0.7108 0.7108 0.7034 -193.9547 151.3005)" class="st7" width="6.9" height="6.8"/>
 						<polygon class="st7" points="84.3,312.9 84.3,308.2 84.3,303.2 89.2,308"/>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[57]" ng-click="nvtGamma.showPropertyData(8, '2F')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[57]" ng-click="nvtGammaRenta.showPropertyData(76, '2F')">
 						<polygon id="f-l2" class="property nvt-sprite-1" points="175.3,413 -0.2,413 -0.5,352.7 175.3,352.7"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 75.0541 359.9196)" class="st1 futura-book st3">40.70</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 4.4254 375.4999)" class="st1 futura-book st3">14.00</text>
@@ -986,7 +986,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 73.544 384.5488)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 80.5441 384.4788)" class="st4 futura-light st6">VE 2F</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[58]" ng-click="nvtGamma.showPropertyData(8, '3F')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[58]" ng-click="nvtGammaRenta.showPropertyData(76, '3F')">
 						<polygon id="f-l3" class="property nvt-sprite-2" points="175.3,473.5 -0.2,473.4 -0.2,413 175.3,413"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 75.054 420.6097)" class="st1 futura-book st3">40.70</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 4.4241 436.1802)" class="st1 futura-book st3">14.00</text>
@@ -997,7 +997,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 73.5444 445.2388)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 80.544 445.1688)" class="st4 futura-light st6">VE 3F</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[59]" ng-click="nvtGamma.showPropertyData(8, '4F')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[59]" ng-click="nvtGammaRenta.showPropertyData(76, '4F')">
 						<polygon id="f-l4" class="property nvt-sprite-1" points="175.3,533.8 0.1,533.8 -0.2,473.4 175.3,473.5"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 75.0541 480.7797)" class="st1 futura-book st3">40.70</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 4.424 496.3502)" class="st1 futura-book st3">14.00</text>
@@ -1008,7 +1008,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 73.544 505.4088)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 80.5441 505.3388)" class="st4 futura-light st6">VE 4F</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[60]" ng-click="nvtGamma.showPropertyData(8, '5F')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[60]" ng-click="nvtGammaRenta.showPropertyData(76, '5F')">
 						<polygon id="f-l5" class="property nvt-sprite-2" points="175.3,594.2 0.1,594.2 0.1,533.8 175.3,533.8"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 75.054 540.4399)" class="st1 futura-book st3">40.70</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 4.425 556.0202)" class="st1 futura-book st3">14.00</text>
@@ -1019,7 +1019,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 73.5444 565.069)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 80.544 564.999)" class="st4 futura-light st6">VE 5F</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[61]" ng-click="nvtGamma.showPropertyData(8, '6F')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[61]" ng-click="nvtGammaRenta.showPropertyData(76, '6F')">
 						<polygon id="f-l6" class="property nvt-sprite-1" points="175.3,654.6 0.4,654.6 0.1,594.2 175.3,594.2"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 75.0541 601.4796)" class="st1 futura-book st3">40.70</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 4.424 617.0598)" class="st1 futura-book st3">14.00</text>
@@ -1030,7 +1030,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 73.5439 626.1087)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 80.544 626.0387)" class="st4 futura-light st6">VE 6F</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[62]" ng-click="nvtGamma.showPropertyData(8, '7F')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[62]" ng-click="nvtGammaRenta.showPropertyData(76, '7F')">
 						<polygon id="f-l7" class="property nvt-sprite-2" points="175.3,715.1 0.5,715.1 0.4,654.6 175.3,654.6"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 75.0543 662.3996)" class="st1 futura-book st3">40.70</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 4.4242 677.9799)" class="st1 futura-book st3">14.00</text>
@@ -1041,7 +1041,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 73.5442 687.0287)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 80.5443 686.9587)" class="st4 futura-light st6">VE 7F</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[63]" ng-click="nvtGamma.showPropertyData(8, '8F')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[63]" ng-click="nvtGammaRenta.showPropertyData(76, '8F')">
 						<polygon id="f-l8" class="property nvt-sprite-1" points="175.3,775.4 0.7,775.4 0.5,715.1 175.3,715.1"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 75.054 722.5696)" class="st1 futura-book st3">40.70</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 4.4242 738.1401)" class="st1 futura-book st3">14.00</text>
@@ -1052,7 +1052,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 73.5443 747.1987)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 80.5439 747.1287)" class="st4 futura-light st6">VE 8F</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[64]" ng-click="nvtGamma.showPropertyData(8, '9F')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[64]" ng-click="nvtGammaRenta.showPropertyData(76, '9F')">
 						<polygon id="f-l9" class="property nvt-sprite-2" points="175.3,835.9 0.9,835.9 0.7,775.4 175.3,775.4"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 75.0542 782.7499)" class="st1 futura-book st3">40.70</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 4.424 798.3199)" class="st1 futura-book st3">14.00</text>
@@ -1063,7 +1063,7 @@
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 73.544 807.379)" class="st4 futura-light st6">A</text>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 80.5442 807.309)" class="st4 futura-light st6">VE 9F</text>
 					</g>
-					<g ng-class="nvtGamma.inmovablesClassList[65]" ng-click="nvtGamma.showPropertyData(8, '10F')">
+					<g ng-class="nvtGammaRenta.inmovablesClassList[65]" ng-click="nvtGammaRenta.showPropertyData(76, '10F')">
 						<polygon id="f-l10" class="property nvt-sprite-1" points="175.3,891.2 0.9,887.9 0.9,835.9 175.3,835.9"/>
 						<text transform="matrix(0.9999 -9.999500e-03 9.999500e-03 0.9999 75.0544 842.9296)" class="st1 futura-book st3">40.70</text>
 						<text transform="matrix(-9.999500e-03 0.9999 -0.9999 -9.999500e-03 4.4248 854.1)" class="st1 futura-book st3">12.00</text>

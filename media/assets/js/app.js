@@ -863,7 +863,7 @@ app.config(function($routeProvider) {
 	.when('/Navetec-Gamma_Renta_Business_Park', {
 		templateUrl: 'application/views/navetec/quote/gamma_renta_quote_view.php',
 		controller: 'NvtGammaRentaQuoteCtrl',
-		controllerAs: 'nvtGamma'
+		controllerAs: 'nvtGammaRenta'
 	})
 
 	/***** Santa Rosa *****/
@@ -891,7 +891,7 @@ app.config(function($routeProvider) {
 	})
 	.when('/Navetec-Santa_Rosa_Renta_Business_Park', {
 	templateUrl: 'application/views/navetec/quote/santa_rosa_nuevo_renta_quote_view.php',
-	controller: 'NvtSantaQuoteCtrl',
+	controller: 'NvtSantaRentaQuoteCtrl',
 	controllerAs: 'nvtSanta'
 	})
 
@@ -8659,53 +8659,53 @@ app.controller('NvtGammaQuoteCtrl', function($scope, Inmovables, Developments, S
 });
 app.controller('NvtGammaRentaQuoteCtrl', function($scope, Inmovables, Developments, Status) {
 
-	var nvtGamma = this;
+	var nvtGammaRenta = this;
 	var inmovables = Inmovables;
 	
 	var inmovablesData = [];
-	nvtGamma.inmovablesClassList = [];
-	nvtGamma.propertyData = [];
+	nvtGammaRenta.inmovablesClassList = [];
+	nvtGammaRenta.propertyData = [];
 
-	nvtGamma.dialogDisplay = 'hide';
+	nvtGammaRenta.dialogDisplay = 'hide';
 
 	var discountPlan1 = .25;
 	var discountPlan2 = .20;
 
-	nvtGamma.showPropertyData = function(idCondominium, number, idProperty) {
+	nvtGammaRenta.showPropertyData = function(idCondominium, number, idProperty) {
 		
 		Developments.selectPropertyById(idProperty).then(function(response) {
 
 			if (Status.checkHttpStatusCode(response.status)) {
 
-				nvtGamma.property = response.property;
-				nvtGamma.property.sample = {};
+				nvtGammaRenta.property = response.property;
+				nvtGammaRenta.property.sample = {};
 
-				nvtGamma.property.sample.m2 = (nvtGamma.property.cost.increase.m2 > 0) ? nvtGamma.property.cost.increase.m2 : nvtGamma.property.cost.m2;
-				nvtGamma.property.sample.property = nvtGamma.property.sample.m2 * nvtGamma.property.area;
+				nvtGammaRenta.property.sample.m2 = (nvtGammaRenta.property.cost.increase.m2 > 0) ? nvtGammaRenta.property.cost.increase.m2 : nvtGammaRenta.property.cost.m2;
+				nvtGammaRenta.property.sample.property = nvtGammaRenta.property.sample.m2 * nvtGammaRenta.property.area;
 
-				nvtGamma.property.sample.discount1 = nvtGamma.property.sample.property - (nvtGamma.property.sample.property * discountPlan1);
-				nvtGamma.property.sample.discount2 = nvtGamma.property.sample.property - (nvtGamma.property.sample.property * discountPlan2);
+				nvtGammaRenta.property.sample.discount1 = nvtGammaRenta.property.sample.property - (nvtGammaRenta.property.sample.property * discountPlan1);
+				nvtGammaRenta.property.sample.discount2 = nvtGammaRenta.property.sample.property - (nvtGammaRenta.property.sample.property * discountPlan2);
 
 				angular.forEach(inmovablesData.inmovables, function(row, key) {
 					if (row.number == number && row.idCondominium == idCondominium) {
-						nvtGamma.propertyData.condominium = inmovablesData.condos[0].condominium;
+						nvtGammaRenta.propertyData.condominium = inmovablesData.condos[0].condominium;
 						if (row.property_class == 1) {
-							nvtGamma.propertyData.propertyClass = 'Nave industrial';
-							nvtGamma.costToBlock = '$30,000 MXN';
+							nvtGammaRenta.propertyData.propertyClass = 'Nave industrial';
+							nvtGammaRenta.costToBlock = '$30,000 MXN';
 						} else if (row.property_class == 2) {
-							nvtGamma.propertyData.propertyClass = 'Lote industrial';
-							nvtGamma.costToBlock = '$10,000 MXN';
+							nvtGammaRenta.propertyData.propertyClass = 'Lote industrial';
+							nvtGammaRenta.costToBlock = '$10,000 MXN';
 						} else {
-							nvtGamma.propertyData.propertyClass = 'Lote habitacional';
-							nvtGamma.costToBlock = '$10,000 MXN';
+							nvtGammaRenta.propertyData.propertyClass = 'Lote habitacional';
+							nvtGammaRenta.costToBlock = '$10,000 MXN';
 						}
 		
 						for (let indexType = 0; indexType < inmovablesData.propertyTypes.length; indexType++) {
 		
 							if (inmovablesData.inmovables[key].idPropertyType == inmovablesData.propertyTypes[indexType].idPropertyType) {
 		
-								nvtGamma.propertyData.type = inmovablesData.propertyTypes[indexType].type;
-								nvtGamma.propertyData.cost_m2 = Number.parseFloat(inmovablesData.propertyTypes[indexType].cost_m2.toFixed(2));
+								nvtGammaRenta.propertyData.type = inmovablesData.propertyTypes[indexType].type;
+								nvtGammaRenta.propertyData.cost_m2 = Number.parseFloat(inmovablesData.propertyTypes[indexType].cost_m2.toFixed(2));
 		
 								break;
 		
@@ -8714,21 +8714,21 @@ app.controller('NvtGammaRentaQuoteCtrl', function($scope, Inmovables, Developmen
 						}
 		
 						if (row.cost_m2_increase != null) {
-							nvtGamma.propertyData.cost_m2 = nvtGamma.property.cost.increase.m2;
-							nvtGamma.propertyData.cost_m2 = Number.parseFloat(nvtGamma.propertyData.cost_m2.toFixed(2));
+							nvtGammaRenta.propertyData.cost_m2 = nvtGammaRenta.property.cost.increase.m2;
+							nvtGammaRenta.propertyData.cost_m2 = Number.parseFloat(nvtGammaRenta.propertyData.cost_m2.toFixed(2));
 						}
 		
-						nvtGamma.propertyData.number = row.number;
-						nvtGamma.propertyData.area = row.area;
-						var total = nvtGamma.propertyData.cost_m2 * nvtGamma.propertyData.area;
-						nvtGamma.propertyData.total = total.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						nvtGammaRenta.propertyData.number = row.number;
+						nvtGammaRenta.propertyData.area = row.area;
+						var total = nvtGammaRenta.propertyData.cost_m2 * nvtGammaRenta.propertyData.area;
+						nvtGammaRenta.propertyData.total = total.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
 						var totalDiscountPlan1 = total - (total * discountPlan1);
-						nvtGamma.propertyData.discountPlan1 = discountPlan1 * 100;
-						nvtGamma.propertyData.totalPlan1 = totalDiscountPlan1.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						nvtGammaRenta.propertyData.discountPlan1 = discountPlan1 * 100;
+						nvtGammaRenta.propertyData.totalPlan1 = totalDiscountPlan1.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
 						var totalDiscountPlan2 = total - (total * discountPlan2);
-						nvtGamma.propertyData.discountPlan2 = discountPlan2 * 100;
-						nvtGamma.propertyData.totalPlan2 = totalDiscountPlan2.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
-						nvtGamma.openDialog();
+						nvtGammaRenta.propertyData.discountPlan2 = discountPlan2 * 100;
+						nvtGammaRenta.propertyData.totalPlan2 = totalDiscountPlan2.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						nvtGammaRenta.openDialog();
 					}
 				});
 
@@ -8745,21 +8745,21 @@ app.controller('NvtGammaRentaQuoteCtrl', function($scope, Inmovables, Developmen
 		});
 	}
 
-	nvtGamma.openDialog = function() {
-		nvtGamma.dialogDisplay = '';
+	nvtGammaRenta.openDialog = function() {
+		nvtGammaRenta.dialogDisplay = '';
 	}
 
-	nvtGamma.closeDialog = function() {
-		nvtGamma.dialogDisplay = 'hide';
+	nvtGammaRenta.closeDialog = function() {
+		nvtGammaRenta.dialogDisplay = 'hide';
 	}
 
 	var init = function() {
 
-		Inmovables.getInmovablesData(1, 5).then(function(response) {
+		Inmovables.getInmovablesData(20, 36).then(function(response) {
 
 			inmovablesData = response;
-			nvtGamma.inmovables = response.inmovables;
-			nvtGamma.inmovablesClassList = inmovables.generateInmovablesClassList(inmovablesData.inmovables);
+			nvtGammaRenta.inmovables = response.inmovables;
+			nvtGammaRenta.inmovablesClassList = inmovables.generateInmovablesClassList(inmovablesData.inmovables);
 
 		});
 
@@ -8882,53 +8882,53 @@ app.controller('NvtSantaRosaQuoteCtrl', function($scope, Inmovables, Development
 });
 app.controller('NvtSantaRentaQuoteCtrl', function($scope, Inmovables, Developments, Status) {
 
-	var nvtSrosa = this;
+	var nvtSanta = this;
 	var inmovables = Inmovables;
 	
 	var inmovablesData = [];
-	nvtSrosa.inmovablesClassList = [];
-	nvtSrosa.propertyData = [];
+	nvtSanta.inmovablesClassList = [];
+	nvtSanta.propertyData = [];
 
-	nvtSrosa.dialogDisplay = 'hide';
+	nvtSanta.dialogDisplay = 'hide';
 
 	var discountPlan1 = .25;
 	var discountPlan2 = .20;
 
-	nvtSrosa.showPropertyData = function(idCondominium, number, idProperty) {
+	nvtSanta.showPropertyData = function(idCondominium, number, idProperty) {
 
 		Developments.selectPropertyById(idProperty).then(function(response) {
 
 			if (Status.checkHttpStatusCode(response.status)) {
 
-				nvtSrosa.property = response.property;
-				nvtSrosa.property.sample = {};
+				nvtSanta.property = response.property;
+				nvtSanta.property.sample = {};
 
-				nvtSrosa.property.sample.m2 = (nvtSrosa.property.cost.increase.m2 > 0) ? nvtSrosa.property.cost.increase.m2 : nvtSrosa.property.cost.m2;
-				nvtSrosa.property.sample.property = nvtSrosa.property.sample.m2 * nvtSrosa.property.area;
+				nvtSanta.property.sample.m2 = (nvtSanta.property.cost.increase.m2 > 0) ? nvtSanta.property.cost.increase.m2 : nvtSanta.property.cost.m2;
+				nvtSanta.property.sample.property = nvtSanta.property.sample.m2 * nvtSanta.property.area;
 
-				nvtSrosa.property.sample.discount1 = nvtSrosa.property.sample.property - (nvtSrosa.property.sample.property * discountPlan1);
-				nvtSrosa.property.sample.discount2 = nvtSrosa.property.sample.property - (nvtSrosa.property.sample.property * discountPlan2);
+				nvtSanta.property.sample.discount1 = nvtSanta.property.sample.property - (nvtSanta.property.sample.property * discountPlan1);
+				nvtSanta.property.sample.discount2 = nvtSanta.property.sample.property - (nvtSanta.property.sample.property * discountPlan2);
 
 				angular.forEach(inmovablesData.inmovables, function(row, key) {
 					if (row.number == number && row.idCondominium == idCondominium) {
-						nvtSrosa.propertyData.condominium = inmovablesData.condos[0].condominium;
+						nvtSanta.propertyData.condominium = inmovablesData.condos[0].condominium;
 						if (row.property_class == 1) {
-							nvtSrosa.propertyData.propertyClass = 'Nave industrial';
-							nvtSrosa.costToBlock = '$20,000 MXN';
+							nvtSanta.propertyData.propertyClass = 'Nave industrial';
+							nvtSanta.costToBlock = '$20,000 MXN';
 						} else if (row.property_class == 2) {
-							nvtSrosa.propertyData.propertyClass = 'Lote industrial';
-							nvtSrosa.costToBlock = '$10,000 MXN';
+							nvtSanta.propertyData.propertyClass = 'Lote industrial';
+							nvtSanta.costToBlock = '$10,000 MXN';
 						} else {
-							nvtSrosa.propertyData.propertyClass = 'Lote habitacional';
-							nvtSrosa.costToBlock = '$10,000 MXN';
+							nvtSanta.propertyData.propertyClass = 'Lote habitacional';
+							nvtSanta.costToBlock = '$10,000 MXN';
 						}
 		
 						for (let indexType = 0; indexType < inmovablesData.propertyTypes.length; indexType++) {
 		
 							if (inmovablesData.inmovables[key].idPropertyType == inmovablesData.propertyTypes[indexType].idPropertyType) {
 		
-								nvtSrosa.propertyData.type = inmovablesData.propertyTypes[indexType].type;
-								nvtSrosa.propertyData.cost_m2 = Number.parseFloat(inmovablesData.propertyTypes[indexType].cost_m2.toFixed(2));
+								nvtSanta.propertyData.type = inmovablesData.propertyTypes[indexType].type;
+								nvtSanta.propertyData.cost_m2 = Number.parseFloat(inmovablesData.propertyTypes[indexType].cost_m2.toFixed(2));
 		
 								break;
 		
@@ -8937,21 +8937,21 @@ app.controller('NvtSantaRentaQuoteCtrl', function($scope, Inmovables, Developmen
 						}
 		
 						if (row.cost_m2_increase != null) {
-							nvtSrosa.propertyData.cost_m2 = nvtSrosa.property.cost.increase.m2;
-							nvtSrosa.propertyData.cost_m2 = Number.parseFloat(nvtSrosa.propertyData.cost_m2.toFixed(2));
+							nvtSanta.propertyData.cost_m2 = nvtSanta.property.cost.increase.m2;
+							nvtSanta.propertyData.cost_m2 = Number.parseFloat(nvtSanta.propertyData.cost_m2.toFixed(2));
 						}
 		
-						nvtSrosa.propertyData.number = row.number;
-						nvtSrosa.propertyData.area = row.area;
-						var total = nvtSrosa.propertyData.cost_m2 * nvtSrosa.propertyData.area;
-						nvtSrosa.propertyData.total = total.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						nvtSanta.propertyData.number = row.number;
+						nvtSanta.propertyData.area = row.area;
+						var total = nvtSanta.propertyData.cost_m2 * nvtSanta.propertyData.area;
+						nvtSanta.propertyData.total = total.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
 						var totalDiscountPlan1 = total - (total * discountPlan1);
-						nvtSrosa.propertyData.discountPlan1 = discountPlan1 * 100;
-						nvtSrosa.propertyData.totalPlan1 = totalDiscountPlan1.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						nvtSanta.propertyData.discountPlan1 = discountPlan1 * 100;
+						nvtSanta.propertyData.totalPlan1 = totalDiscountPlan1.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
 						var totalDiscountPlan2 = total - (total * discountPlan2);
-						nvtSrosa.propertyData.discountPlan2 = discountPlan2 * 100;
-						nvtSrosa.propertyData.totalPlan2 = totalDiscountPlan2.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
-						nvtSrosa.openDialog();
+						nvtSanta.propertyData.discountPlan2 = discountPlan2 * 100;
+						nvtSanta.propertyData.totalPlan2 = totalDiscountPlan2.toLocaleString(undefined, {minimumFractionDigits: 2,'maximumFractionDigits':2});
+						nvtSanta.openDialog();
 					}
 				});
 
@@ -8968,21 +8968,21 @@ app.controller('NvtSantaRentaQuoteCtrl', function($scope, Inmovables, Developmen
 		});
 	}
 
-	nvtSrosa.openDialog = function() {
-		nvtSrosa.dialogDisplay = '';
+	nvtSanta.openDialog = function() {
+		nvtSanta.dialogDisplay = '';
 	}
 
-	nvtSrosa.closeDialog = function() {
-		nvtSrosa.dialogDisplay = 'hide';
+	nvtSanta.closeDialog = function() {
+		nvtSanta.dialogDisplay = 'hide';
 	}
 
 	var init = function() {
 
-		Inmovables.getInmovablesData(3, 4).then(function(response) {
+		Inmovables.getInmovablesData(21, 37).then(function(response) {
 
 			inmovablesData = response;
-			nvtSrosa.inmovables = response.inmovables;
-			nvtSrosa.inmovablesClassList = inmovables.generateInmovablesClassList(inmovablesData.inmovables);
+			nvtSanta.inmovables = response.inmovables;
+			nvtSanta.inmovablesClassList = inmovables.generateInmovablesClassList(inmovablesData.inmovables);
 
 		});
 

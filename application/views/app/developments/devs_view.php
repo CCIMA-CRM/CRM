@@ -166,6 +166,11 @@
 													Beta
 												</md-button>
 											</md-menu-item>
+											<md-menu-item>
+												<md-button href="#!/inventary/layouts/Beta Renta">
+													Beta Renta
+												</md-button>
+											</md-menu-item>
 	                                        <md-menu-item>
 												<md-button href="#!/Navetec-Beta_Business_Park-Inventary">
 													Beta Completo
@@ -187,10 +192,20 @@
 													Gamma
 												</md-button>
 											</md-menu-item>
+											<md-menu-item>
+												<md-button href="#!/inventary/layouts/Gamma Renta">
+													Gamma Renta
+												</md-button>
+											</md-menu-item>
 	
 											<md-menu-item>
 												<md-button href="#!/inventary/layouts/Santa Rosa">
 													Santa Rosa
+												</md-button>
+											</md-menu-item>
+											<md-menu-item>
+												<md-button href="#!/inventary/layouts/Santa Rosa Renta">
+													Santa Rosa Renta
 												</md-button>
 											</md-menu-item>
 	
