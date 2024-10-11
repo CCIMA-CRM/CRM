@@ -144,17 +144,54 @@
             </div>
         </li>
         <md-divider></md-divider>
-        <a href="#!/Navetec-Calamanda_Business_Park" ng-click="close()">
-            <div class="link-body link-nav">
-                Calamanda Business Park
-            </div>
-        </a>
-        <md-divider></md-divider>
-        <a href="#!/Navetec-Celta_Business_Park" ng-click="close()">
-            <div class="link-body link-nav">
-                Celta Business Park
-            </div>
-        </a>
+        <md-menu>
+    <a ng-click="$mdMenu.open($event)">
+        <div class="link-body link-nav">
+            Calamanda Business Park
+        </div>
+    </a>
+    <md-menu-content>
+        <md-menu-item>
+            <a href="#!/Navetec-Calamanda_Business_Park" ng-click="close()">
+                <md-button>
+                    Preventa
+                </md-button>
+            </a>
+        </md-menu-item>
+        <md-menu-item>
+            <a href="#!/Navetec-Calamanda_Business_Park-Renta" ng-click="close()">
+                <md-button>
+                    Renta
+                </md-button>
+            </a>
+        </md-menu-item>
+    </md-menu-content>
+</md-menu>
+<md-divider></md-divider>
+
+<md-menu>
+    <a ng-click="$mdMenu.open($event)">
+        <div class="link-body link-nav">
+            Celta Business Park
+        </div>
+    </a>
+    <md-menu-content>
+        <md-menu-item>
+            <a href="#!/Navetec-Celta_Business_Park" ng-click="close()">
+                <md-button>
+                    Preventa
+                </md-button>
+            </a>
+        </md-menu-item>
+        <md-menu-item>
+            <a href="#!/Navetec-Celta_Business_Park-Renta" ng-click="close()">
+                <md-button>
+                    Renta
+                </md-button>
+            </a>
+        </md-menu-item>
+    </md-menu-content>
+</md-menu>
         <md-divider></md-divider>
         <a href="#!/Navetec-Gamma_Business_Park" ng-click="close()">
             <div class="link-body link-nav">
