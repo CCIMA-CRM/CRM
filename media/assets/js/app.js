@@ -8531,7 +8531,7 @@ app.controller('NvtBetaRentaQuoteCtrl', function($scope, Inmovables, Development
 	}
 
 	var init = function() {
-
+        //Este es el codigo que tare la información de la base de datos 
 		Inmovables.getInmovablesData(19, 35).then(function(response) {
 
 			inmovablesData = response;

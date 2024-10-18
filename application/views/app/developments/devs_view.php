@@ -167,7 +167,7 @@
 												</md-button>
 											</md-menu-item>
 											<md-menu-item>
-												<md-button href="#!/inventary/layouts/Beta Renta">
+												<md-button href="#!/inventary/layouts/Beta_Renta">
 													Beta Renta
 												</md-button>
 											</md-menu-item>
